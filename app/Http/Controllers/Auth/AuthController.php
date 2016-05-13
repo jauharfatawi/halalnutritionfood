@@ -124,9 +124,10 @@ class AuthController extends Controller {
 
         if(!$user->email)
         {
-            return redirect()->route('auth.login')
-                ->with('status', 'danger')
-                ->with('message', 'You did not share your email with our social app. You need to visit App Settings and remove our app, than you can come back here and login again. Or you can create new account.');
+            // return redirect()->route('auth.login')
+            //     ->with('status', 'danger')
+            //     ->with('message', 'You did not share your email with our social app. You need to visit App Settings and remove our app, than you can come back here and login again. Or you can create new account.');
+            $user->email = $user->id.'@'.$provider.'.com';
         }
 
         $socialUser = null;
