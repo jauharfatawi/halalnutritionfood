@@ -116,11 +116,11 @@ class AuthController extends Controller {
 
         $user = Socialite::driver( $provider )->user();
 
-        $code = Input::get('code');
-        if(!$code)
-            return redirect()->route('auth.login')
-                ->with('status', 'danger')
-                ->with('message', 'You did not share your profile data with our socail app.');
+        // $code = Input::get('code');
+        // if(!$code)
+        //     return redirect()->route('auth.login')
+        //         ->with('status', 'danger')
+        //         ->with('message', 'You did not share your profile data with our socail app.');
 
         if(!$user->email)
         {
