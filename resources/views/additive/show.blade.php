@@ -107,11 +107,12 @@
                                 }
                                 ?>
                             @else
-                            <li>Pharmacological action not determined</li>
+                            <li>Not determined</li>
                             @endif
                         </ul>
                     </div>
                 </div>
+                @if(isset($halalSource))
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table">
@@ -138,6 +139,7 @@
                 </div>
             </div>
         </div>
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <label>Description</label>

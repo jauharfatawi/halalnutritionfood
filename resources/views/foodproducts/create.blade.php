@@ -9,10 +9,12 @@
 @section('body')
     <div class="container" ng-app="validationApp">
         <div class="row">
-            <h1 class="page-header">Submit Food Product</h1>
+            <div class="col-md-12">
+                <h1 class="page-header">Submit Food Product</h1>
+            </div>
         </div>
-        <div class="row">
-            {!! Form::open(['route' => 'foodproduct.store', 'name'=>'foodForm', 'id' => 'foodProductForm', 'data-parsley-validate']) !!}
+        <div class="row" ng-controller="foodProductValidate">
+            {!! Form::open(['route' => 'foodproduct.store', 'name'=>'foodForm', 'id' => 'foodProductForm', 'data-parsley-validate', 'data-parsley-excluded'=>'input[type=number]']) !!}
             @include('includes.errors')
             @include('foodproducts/form', ['SubmitButtonText' => 'Add Food Product'])
             {!! Form::close() !!}

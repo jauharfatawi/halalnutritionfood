@@ -1,8 +1,7 @@
-<div class="row" ng-controller="foodProductValidate">
-    <div class="col-md-3 col-sm-5">
+    <div class="col-md-4 col-sm-5">
         @include('foodproducts/nutrition')
     </div>
-    <div class="col-md-9 col-sm-7">
+    <div class="col-md-8 col-sm-7">
         {!! Form::hidden('user_id', Auth::user()->id ) !!}
         <div class="form-group">
             {!! Form::label('fCode','Food Code') !!}
@@ -117,7 +116,7 @@
                     ]) !!}
                 </div>
             </div>
-            <div class="col-lg-2 col-md-3">
+            <div class="col-lg-2 col-md-2">
                 <div class="form-group">
                     {!! Form::text('cExpire[]', null, [
                         'class'=>'form-control form-date cExpire',
@@ -126,7 +125,7 @@
                     ]) !!}
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4">
+            <div class="col-lg-3 col-md-3">
                 <div class="form-group">
                     {!! Form::select('cStatus[]', array('Development','New','Renew'), null, [
                         'class' => 'form-control select2 cStatus', 
@@ -134,7 +133,7 @@
                     ]) !!}
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-xs-11">
+            <div class="col-lg-3 col-md-3 col-xs-10">
                 <div class="form-group">
                     {!! Form::text('cOrganization[]', null, [
                         'class' => 'halalcertorg form-control cOrganization', 
@@ -148,9 +147,7 @@
             </div>
         </div>
         <div class="input_fields_wrap "></div>
+        {!! Form::submit($SubmitButtonText, ['class' => 'btn btn-primary pull-right']) !!}
     </div>
-</div>
-<div class="clearfix">
-    {!! Form::submit($SubmitButtonText, ['class' => 'btn btn-primary pull-right']) !!}
-</div>
+    
 

@@ -25,7 +25,7 @@ app.controller('foodProductValidate', ['$scope', function($scope) {
 //Parsley food product
 if ($('#foodProductForm').length > 0 ){
     $("#foodProductForm").parsley({
-        successClass: "has-success",
+        // successClass: "has-success",
         errorClass: "has-error",
         classHandler: function(el) {
             return el.$element.closest(".form-group");
@@ -53,7 +53,7 @@ if ($('#foodProductForm').length > 0 ){
 //Parsley addictive
 if ($('#additiveForm').length > 0 ){
     $("#additiveForm").parsley({
-        successClass: "has-success",
+        // successClass: "has-success",
         errorClass: "has-error",
         classHandler: function(el) {
             return el.$element.closest(".form-group");

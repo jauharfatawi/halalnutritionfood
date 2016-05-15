@@ -20,8 +20,8 @@ class CreateFoodProduct extends Migration
             $table->integer('fVerify')->default(0);
             $table->integer('fView')->default(0);
 
-            $table->float('weight')->default(0);
-            $table->float('calories')->default(0);
+            $table->integer('weight')->default(0);
+            $table->integer('calories')->default(0);
             $table->float('totalFat')->default(0);
             $table->float('saturatedFat')->default(0);
             $table->float('transFat')->default(0);
@@ -31,10 +31,10 @@ class CreateFoodProduct extends Migration
             $table->float('dietaryFiber')->default(0);
             $table->float('sugar')->default(0);
             $table->float('protein')->default(0);
-            $table->float('vitaminA')->default(0);
-            $table->float('vitaminC')->default(0);
-            $table->float('calcium')->default(0);
-            $table->float('iron')->default(0);
+            $table->integer('vitaminA')->default(0);
+            $table->integer('vitaminC')->default(0);
+            $table->integer('calcium')->default(0);
+            $table->integer('iron')->default(0);
 
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

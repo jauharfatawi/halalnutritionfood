@@ -14,10 +14,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 col-sm-5">
+            <div class="col-md-4 col-sm-5">
                 <div id="nutrition"></div>
             </div>
-            <div class="col-md-9 col-sm-7">
+            <div class="col-md-8 col-sm-7">
                 <div class="form-group">
                     {!! Form::label('foodId','Food ID') !!}
                     <p>{{ $foodProduct->fCode }}</p>
@@ -115,7 +115,7 @@
                     </table>
                 </div>
                 @endif
-                <a href="{{ route('foodproduct.edit',$foodProduct->id) }}" class="btn btn-primary" role="button">Edit Food</a>
+                <a href="{{ route('foodproduct.edit',$foodProduct->id) }}" class="btn btn-primary pull-right" role="button">Edit Food</a>
             </div>
         </div>
     </div>

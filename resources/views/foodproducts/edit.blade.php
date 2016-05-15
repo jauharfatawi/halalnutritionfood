@@ -11,8 +11,8 @@
         <div class="row">
             <h1 class="page-header">Edit: {!! $foodProduct->fName !!}</h1>
         </div>
-        <div class="row">
-            {!! Form::model($foodProduct, ['method' => 'PATCH', 'route' => ['foodproduct.update', $foodProduct->id], 'name'=>'foodForm', 'id' => 'foodProductForm', 'data-parsley-validate']) !!}
+        <div class="row" ng-controller="foodProductValidate">
+            {!! Form::model($foodProduct, ['method' => 'PATCH', 'route' => ['foodproduct.update', $foodProduct->id], 'name'=>'foodForm', 'id' => 'foodProductForm', 'data-parsley-validate', 'data-parsley-excluded'=>'input[type=number]']) !!}
             @include('includes.errors')
             @include('foodproducts.form', ['SubmitButtonText' => 'Edit Food Product'])
             {!! Form::hidden('fVerify', 0) !!}
