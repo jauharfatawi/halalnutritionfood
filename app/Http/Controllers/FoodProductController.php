@@ -135,7 +135,7 @@ class FoodProductController extends Controller
             }
             else {
                 $ingredient = new Ingredient;
-                $ingredient->iName = $request->input('ingredient_list')[$ing];
+                $ingredient->iName = ucwords($request->input('ingredient_list')[$ing]);
                 $ingredient->save();                
                 return $ingredient->id;
             }
