@@ -8,6 +8,8 @@ use App\Models\FoodProduct;
 use App\Models\Ingredient;
 use App\Models\Certificate;
 use App\Models\HalalSource;
+
+use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Yajra\Datatables\Datatables;
@@ -98,5 +100,144 @@ class ApiController extends Controller
     {
         $certificate = Certificate::distinct()->lists('cOrganization');
         return json_encode($certificate);
+    }
+
+    public function getWriteToTurtle()
+    {
+        $turtlefile = fopen("turtle.ttl", "w");
+        if(!$turtlefile){
+            return "error";
+        }
+        $ingWritted = 0;
+        $foodProducts = FoodProduct::where('fVerify',1)->get()->toArray();
+
+        $prefix = "
+        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+        @prefix owl: <http://www.w3.org/2002/07/owl#>.
+        @prefix dcterms: <http://purl.org/dc/terms/>.
+        @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+        @prefix vann: <http://purl.org/vocab/vann/>.
+        @prefix foaf: <http://xmlns.com/foaf/0.1/>.
+        @prefix dc: <http://purl.org/dc/elements/1.1/>.
+        @prefix halalv: <http://localhost/ontologies/halalv#>.
+        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.";
+        fwrite($turtlefile, $prefix);
+
+        
+        foreach ($foodProducts as $fp => $val) {
+            $list[$fp]="
+            halalf:".$foodProducts[$fp]['id']." a halalv:FoodProduct;
+            \thalalv:foodCode ".$foodProducts[$fp]['fCode'].";
+            \trdfs:label \"".$foodProducts[$fp]['fName']."\";
+            \thalalv:manufacture \"".$foodProducts[$fp]['fManufacture']."\";
+            \thalalv:netWeight ".$foodProducts[$fp]['weight']."^xsd:integer;
+            \thalalv:calories ".$foodProducts[$fp]['calories']."^xsd:integer;
+            \thalalv:fat ".$foodProducts[$fp]['totalFat']."^xsd:decimal;
+            \thalalv:saturatedFat ".$foodProducts[$fp]['saturatedFat']."^xsd:decimal;
+            \thalalv:sodium ".$foodProducts[$fp]['sodium']."^xsd:decimal;
+            \thalalv:fiber ".$foodProducts[$fp]['dietaryFiber']."^xsd:decimal;
+            \thalalv:sugar ".$foodProducts[$fp]['sugar']."^xsd:decimal;
+            \thalalv:protein ".$foodProducts[$fp]['protein']."^xsd:decimal;
+            \thalalv:vitaminA ".$foodProducts[$fp]['vitaminA']."^xsd:integer;
+            \thalalv:vitaminC ".$foodProducts[$fp]['vitaminC']."^xsd:integer;
+            \thalalv:calcium ".$foodProducts[$fp]['calcium']."^xsd:integer;
+            \thalalv:iron ".$foodProducts[$fp]['iron']."^xsd:integer.\n";
+            fwrite($turtlefile, $list[$fp]);
+
+            $getCertFK = DB::select('select * from foodProduct_certificate where foodProduct_id = ?', [$foodProducts[$fp]['id']]);
+            foreach ($getCertFK as $id => $val) {
+                $certificate[$id] = Certificate::findOrFail($getCertFK[$id]->certificate_id);
+                if($certificate[$id]->cStatus == 0){
+                    $cStatus = "Development";
+                }
+                elseif ($certificate[$id]->cStatus == 1) {
+                    $cStatus = "New";   
+                }
+                else{
+                    $cStatus = "Renew";
+                }
+
+                $insertCertificate = "
+                halalc:".$certificate[$id]->id." a halalv:HalalCertificate;
+                \thalalv:halalCode \"".$certificate[$id]->cCode."\";
+                \thalalv:halalExp \"".$certificate[$id]->cExpire."\"^xsd:date;
+                \thalalv:halalStatus \"".$cStatus."\";
+                \tfoaf:organization \"".$certificate[$id]->cOrganization."\".";
+                fwrite($turtlefile, $insertCertificate);
+            }
+
+            $hasCertificate = "\nhalalf:".$foodProducts[$fp]['id']." halalv:certificate ";
+            foreach ($getCertFK as $id => $val) {
+                $hasCertificate = $hasCertificate."halalc:".$getCertFK[$id]->certificate_id.", ";
+            }
+            fwrite($turtlefile, rtrim($hasCertificate,", \"").".\n");
+
+
+
+            $getIngFK = DB::select('select * from foodProduct_ingredient where foodProduct_id = ?', [$foodProducts[$fp]['id']]);
+            foreach ($getIngFK as $id => $val) {
+                $ingredient[$id] = Ingredient::findOrFail($getIngFK[$id]->ingredient_id);
+                if($ingredient[$id]->iType == 0){
+                    $insertIngredient = "
+                    halali:".$ingredient[$id]->id." a halalv:Ingredient;
+                    \thalalv:rank ".$ingredient[$id]->id."^xsd:integer;
+                    \trdfs:label \"".$ingredient[$id]->iName."\".\n";
+                }
+                else{
+                    $insertIngredient = "
+                    halali:".$ingredient[$id]->id." a halalv:FoodAdditive;
+                    \thalalv:rank ".$ingredient[$id]->id."^xsd:integer;
+                    \ttrdfs:label \"".$ingredient[$id]->iName."\".;
+                    \trdfs:comment \"".$ingredient[$id]->eNumber."\".\n";
+                }
+                if($ingWritted != $ingredient[$id]->id){
+                    fwrite($turtlefile, $insertIngredient);
+                }
+                $ingWritted = $ingredient[$id]->id;
+            }
+            
+            $containsIng = "\nhalalf:".$foodProducts[$fp]['id']." halalv:containsIngredient ";
+            foreach ($getIngFK as $id => $val) {
+                $containsIng = $containsIng."halali:".$getIngFK[$id]->ingredient_id.", ";
+            }
+            fwrite($turtlefile, rtrim($containsIng,", \"").".\n");
+
+            foreach ($getIngFK as $id => $val) {
+                $ingredient[$id] = Ingredient::findOrFail($getIngFK[$id]->ingredient_id);
+                $halalIng = "\nhalali:".$ingredient[$id]['id']." halalv:halalSource ";
+                if($ingredient[$id]->iType == 1){
+                    $getHalalFK = DB::select('select * from ingredient_halal where ingredient_id = ?', [$ingredient[$id]->id]);
+                    foreach ($getHalalFK as $id => $val) {
+                        $halal[$id] = HalalSource::findOrFail($getHalalFK[$id]->halal_id);
+                        if($halal[$id]->hStatus == 0){
+                            $hStatus = "Halal";
+                        }
+                        elseif ($halal[$id]->hStatus == 1) {
+                            $hStatus = "Mushbooh";   
+                        }
+                        else{
+                            $hStatus = "Haraam";
+                        }
+                        $insertHalal = "
+                        halals:".$halal[$id]->id." a halalv:Source;
+                        \trdfs:label \"".$hStatus."\";
+                        \trdfs:comment \"".$halal[$id]->hDescription."\";
+                        \tfoaf:organization \"".$halal[$id]->hOrganization."\";
+                        \trdfs:seeAlso ".$halal[$id]->hUrl.".\n";
+                        fwrite($turtlefile, $insertHalal);
+
+                        $halalIng = $halalIng."halals:".$getHalalFK[$id]->halal_id.", ";
+                        
+                    }
+                    fwrite($turtlefile, rtrim($halalIng,", \"").".\n");                  
+                }
+            }
+            
+        }
+        // fclose("turtle.ttl");
+        echo "berhasil";
+
+        //jalankan skrip ke fuseki
+        
     }
 }

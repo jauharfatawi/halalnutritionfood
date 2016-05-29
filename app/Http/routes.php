@@ -50,5 +50,6 @@ Route::controller('api', 'ApiController',[
 	'getManufactureList' => 'api.manufacture.list',
 	'getHalalOrgList' => 'api.halalOrg.list',
 	'getCertOrgList' => 'api.certOrg.list',
+	'getWriteToTurtle' => 'api.writeTurtle',
 ]);
 

@@ -88,9 +88,9 @@
                     <label class="col-md-3">Pubchem CID</label>
                     <div class="col-md-9">
                         @if(isset($CID))
-                            <p class="  ">{{ $CID }}</p>
+                            <p>{{ $CID }}</p>
                         @else
-                            <p class="  ">Not Determined</p>
+                            <p>Not Determined</p>
                         @endif
                     </div>
                 </div>
@@ -137,9 +137,9 @@
                         </table>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
-        @endif
         <div class="row">
             <div class="col-md-12">
                 <label>Description</label>
