@@ -1,3 +1,19 @@
+<?php
+    /**
+     * Display the contents of a graph
+     *
+     * Data from the chosen URI is loaded into an EasyRdf_Graph object.
+     * Then the graph is dumped and printed to the page using the
+     * $graph->dump() method.
+     *
+     * The call to preg_replace() replaces links in the page with
+     * links back to this dump script.
+     *
+     * @package    EasyRdf
+     * @copyright  Copyright (c) 2009-2013 Nicholas J Humfrey
+     * @license    http://unlicense.org/
+     */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head><title>EasyRdf Graph Dumper</title></head>
@@ -7,10 +23,10 @@
 <div style="margin: 10px">
     {!! Form::open(['url'=>'RDFBrowser','method' => 'get']) !!}
     URI: 
-    {!! Form::text('uri', 'http://halalnutritionfood.app/foaf.rdf', ['size'=>80])!!} </br>
+    {!! Form::text('uri', 'http://halalnutritionfood.com/turtle.ttl', ['size'=>80])!!} </br>
     Format: 
     {!! Form::label('format_html','HTML',['id'=>'label_for_format_html']) !!}
-    {!! Form::radio('format', 'HTML', ['id'=>'format_html', 'checked'=>'checked']) !!}
+    {!! Form::radio('format', 'HTML', ['id'=>'format_html', 'checked'=>'checked']) !!}</br>
     
     {!! Form::submit('submit') !!}
     {!! Form::close() !!}
