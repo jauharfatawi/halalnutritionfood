@@ -10,7 +10,6 @@
 @prefix halali: <http://example.com/ingredient/> .
 @prefix halals: <http://example.com/halalsource/> .
 @prefix halalc: <http://example.com/certificate/> .
-@prefix halalm: <http://example.com/manufacture/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 
@@ -364,39 +363,32 @@ halalv:certificate a rdfs:Property;
     rdfs:domain halalv:FoodProduct;
     rdfs:range halalv:HalalCertificate.
 
-halalv:Manufacture a rdfs:Class, owl:Class;
-    rdfs:label "Product Manufacture";
-    rdfs:comment "Manufacture that make and distribute food product.".
-
 halalv:manufacture a rdfs:Property, owl:DatatypeProperty;
     rdfs:label "Manufacture";
     rdfs:comment "Manufacture that product or make a product.";
     rdfs:domain halalv:Food, halalv:Ingredient;
-    rdfs:range halalv:Manufacture.
+    rdfs:range xsd:String.
 
             halalf:4 a halalv:FoodProduct;
-            	halalv:foodCode "899999034566";
+            	halalv:foodCode 899999034566;
             	rdfs:label "Walls Cornetto Black and White";
             	halalv:manufacture "PT. Unilever Indonesia Tbk";
             	halalv:netWeight 110;
             	halalv:calories 160;
-            	halalv:fat 5;
+            	halalv:fat 5.0;
             	halalv:saturatedFat 4.5;
-            	halalv:sodium 65;
-            	halalv:fiber 1;
-            	halalv:sugar 15;
-            	halalv:protein 2;
+            	halalv:sodium 65.0;
+            	halalv:fiber 1.0;
+            	halalv:sugar 15.0;
+            	halalv:protein 2.0;
             	halalv:vitaminA 0;
             	halalv:vitaminC 0;
             	halalv:calcium 0;
             	halalv:iron 0.
 
-                halalm:4 a halalv:Manufacture;
-                	rdfs:label "PT. Unilever Indonesia Tbk".
-halalf:4 halalv:manufacture halalm:4.
                 halalc:4 a halalv:HalalCertificate;
                 	halalv:halalCode "00290047180208	";
-                	halalv:halalExp "2018-06-01"^^xsd:date;
+                	halalv:halalExp "2018-06-01"^xsd:date;
                 	halalv:halalStatus "Renew";
                 	foaf:organization "Majelis Ulama Indonesia".
 halalf:4 halalv:certificate halalc:4.
@@ -567,28 +559,25 @@ halali:39 halalv:halalSource halals:39, halals:351.
 halali:24 halalv:halalSource halals:24, halals:347.
 
             halalf:5 a halalv:FoodProduct;
-            	halalv:foodCode "894755030400";
+            	halalv:foodCode 894755030400;
             	rdfs:label "Good Time Mini";
             	halalv:manufacture "PT. Arnott`s Indonesia";
             	halalv:netWeight 19;
             	halalv:calories 90;
-            	halalv:fat 4;
+            	halalv:fat 4.0;
             	halalv:saturatedFat 2.5;
-            	halalv:sodium 90;
-            	halalv:fiber 2;
-            	halalv:sugar 5;
-            	halalv:protein 1;
+            	halalv:sodium 90.0;
+            	halalv:fiber 2.0;
+            	halalv:sugar 5.0;
+            	halalv:protein 1.0;
             	halalv:vitaminA 0;
             	halalv:vitaminC 0;
             	halalv:calcium 0;
             	halalv:iron 0.
 
-                halalm:5 a halalv:Manufacture;
-                	rdfs:label "PT. Arnott`s Indonesia".
-halalf:5 halalv:manufacture halalm:5.
                 halalc:5 a halalv:HalalCertificate;
                 	halalv:halalCode "00100027970104";
-                	halalv:halalExp "2018-09-03"^^xsd:date;
+                	halalv:halalExp "2018-09-03"^xsd:date;
                 	halalv:halalStatus "Renew";
                 	foaf:organization "Majelis Ulama Indonesia".
 halalf:5 halalv:certificate halalc:5.
@@ -655,28 +644,25 @@ halalf:5 halalv:containsIngredient halali:346, halali:359, halali:340, halali:36
 halali:230 halalv:halalSource halals:230, halals:511.
 
             halalf:13 a halalv:FoodProduct;
-            	halalv:foodCode "839278100340";
+            	halalv:foodCode 839278100340;
             	rdfs:label "Wong Coco Es Bon Bon";
             	halalv:manufacture "PT. Keong Nusantara Abadi";
             	halalv:netWeight 80;
             	halalv:calories 70;
-            	halalv:fat 0;
-            	halalv:saturatedFat 1;
-            	halalv:sodium 10;
-            	halalv:fiber 0;
-            	halalv:sugar 14;
-            	halalv:protein 1;
+            	halalv:fat 0.0;
+            	halalv:saturatedFat 1.0;
+            	halalv:sodium 10.0;
+            	halalv:fiber 0.0;
+            	halalv:sugar 14.0;
+            	halalv:protein 1.0;
             	halalv:vitaminA 0;
             	halalv:vitaminC 0;
             	halalv:calcium 0;
             	halalv:iron 0.
 
-                halalm:13 a halalv:Manufacture;
-                	rdfs:label "PT. Keong Nusantara Abadi".
-halalf:13 halalv:manufacture halalm:13.
                 halalc:6 a halalv:HalalCertificate;
                 	halalv:halalCode "00250017010901";
-                	halalv:halalExp "2017-04-08"^^xsd:date;
+                	halalv:halalExp "2017-04-08"^xsd:date;
                 	halalv:halalStatus "Renew";
                 	foaf:organization "Majelis Ulama Indonesia".
 halalf:13 halalv:certificate halalc:6.
@@ -797,28 +783,25 @@ halali:21 halalv:halalSource halals:21.
 halali:24 halalv:halalSource halals:24, halals:347.
 
             halalf:17 a halalv:FoodProduct;
-            	halalv:foodCode "011747233033";
+            	halalv:foodCode 011747233033;
             	rdfs:label "Dua Kelinci - Kacang Garing";
             	halalv:manufacture "PT. Dua Kelinci";
             	halalv:netWeight 25;
             	halalv:calories 160;
-            	halalv:fat 12;
-            	halalv:saturatedFat 3;
-            	halalv:sodium 99.9;
-            	halalv:fiber 3;
-            	halalv:sugar 1;
-            	halalv:protein 8;
+            	halalv:fat 12.0;
+            	halalv:saturatedFat 3.0;
+            	halalv:sodium 170.0;
+            	halalv:fiber 3.0;
+            	halalv:sugar 1.0;
+            	halalv:protein 8.0;
             	halalv:vitaminA 0;
             	halalv:vitaminC 0;
             	halalv:calcium 0;
             	halalv:iron 0.
 
-                halalm:17 a halalv:Manufacture;
-                	rdfs:label "PT. Dua Kelinci".
-halalf:17 halalv:manufacture halalm:17.
                 halalc:15 a halalv:HalalCertificate;
                 	halalv:halalCode "00100017571001";
-                	halalv:halalExp "2016-07-01"^^xsd:date;
+                	halalv:halalExp "2016-07-01"^xsd:date;
                 	halalv:halalStatus "Development";
                 	foaf:organization "Majelis Ulama Indonesia".
 halalf:17 halalv:certificate halalc:15.

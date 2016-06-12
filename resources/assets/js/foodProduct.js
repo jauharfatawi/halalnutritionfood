@@ -12,7 +12,7 @@ var verifyStatus = function ( data, type, full, meta ) {
 var foodProductTableAdmin = $('#foodProduct-tableAdmin').DataTable({
     processing : true,
     serverSide : true,
-    pageLength : 10,
+    pageLength : 100,
     ajax : laroute.route('api.foodproduct.data'),
     columns: [
         { data: 'fCode', name: 'fCode'},
@@ -56,7 +56,6 @@ $('#foodProduct-tableAdmin tbody').on( 'click', 'button.verify', function () {
     });
     window.location.href = laroute.route('foodproduct.index');
 });
-//Tabel User
 $('#foodProduct-tableAdmin tbody').on( 'click', 'button.delete', function () {
     var id = foodProductTableAdmin.row( $(this).parents('tr') ).id(); 
     $.ajax
@@ -70,7 +69,7 @@ $('#foodProduct-tableAdmin tbody').on( 'click', 'button.delete', function () {
     });
     window.location.href = laroute.route('foodproduct.index');
 });
-
+//Tabel User
 var foodProductTable = $('#foodProduct-table').DataTable({
     processing : true,
     serverSide : true,

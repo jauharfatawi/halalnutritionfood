@@ -107,7 +107,6 @@ class ApiController extends Controller
     {
         $turtlefile = fopen("turtle.ttl", "w");
         $vocabfile = file_get_contents('halalv.ttl', true);
-        
 
         if(!$turtlefile){
             return "error";
@@ -115,23 +114,12 @@ class ApiController extends Controller
         $ingWritted = 0;
         $foodProducts = FoodProduct::where('fVerify',1)->get()->toArray();
 
-        $prefix = "
-        @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-        @prefix owl: <http://www.w3.org/2002/07/owl#>.
-        @prefix dcterms: <http://purl.org/dc/terms/>.
-        @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-        @prefix vann: <http://purl.org/vocab/vann/>.
-        @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-        @prefix dc: <http://purl.org/dc/elements/1.1/>.
-        @prefix halalv: <http://localhost/ontologies/halalv#>.
-        @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.";
         fwrite($turtlefile, $vocabfile);
 
-        
         foreach ($foodProducts as $fp => $val) {
             $list[$fp]="
             halalf:".$foodProducts[$fp]['id']." a halalv:FoodProduct;
-            \thalalv:foodCode ".$foodProducts[$fp]['fCode'].";
+            \thalalv:foodCode \"".$foodProducts[$fp]['fCode']."\";
             \trdfs:label \"".$foodProducts[$fp]['fName']."\";
             \thalalv:manufacture \"".$foodProducts[$fp]['fManufacture']."\";
             \thalalv:netWeight ".$foodProducts[$fp]['weight'].";
@@ -148,6 +136,14 @@ class ApiController extends Controller
             \thalalv:iron ".$foodProducts[$fp]['iron'].".\n";
             fwrite($turtlefile, $list[$fp]);
 
+            $getManufacture = DB::select('select fManufacture from foodProducts where id = ?', [$foodProducts[$fp]['id']]);
+            $insertManufacture = "
+            halalm:".$foodProducts[$fp]['id']." a halalv:Manufacture;
+            \trdfs:label \"".$getManufacture[0]->fManufacture."\".\n";
+            fwrite($turtlefile, $insertManufacture);
+            $hasManufacture = "halalf:".$foodProducts[$fp]['id']." halalv:manufacture halalm:".$foodProducts[$fp]['id'].".";
+            fwrite($turtlefile, $hasManufacture);
+            
             $getCertFK = DB::select('select * from foodProduct_certificate where foodProduct_id = ?', [$foodProducts[$fp]['id']]);
             foreach ($getCertFK as $id => $val) {
                 $certificate[$id] = Certificate::findOrFail($getCertFK[$id]->certificate_id);
@@ -164,7 +160,7 @@ class ApiController extends Controller
                 $insertCertificate = "
                 halalc:".$certificate[$id]->id." a halalv:HalalCertificate;
                 \thalalv:halalCode \"".$certificate[$id]->cCode."\";
-                \thalalv:halalExp \"".$certificate[$id]->cExpire->format('Y-m-d')."\"^xsd:date;
+                \thalalv:halalExp \"".$certificate[$id]->cExpire->format('Y-m-d')."\"^^xsd:date;
                 \thalalv:halalStatus \"".$cStatus."\";
                 \tfoaf:organization \"".$certificate[$id]->cOrganization."\".";
                 fwrite($turtlefile, $insertCertificate);

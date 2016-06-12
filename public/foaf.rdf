@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:admin="http://webns.net/mvcb/"
+      xmlns:contact="http://www.w3.org/2000/10/swap/pim/contact#" 
+      xmlns:air="http://www.daml.org/2001/10/html/airport-ont#"
+      xmlns:pos="http://www.w3.org/2003/01/geo/wgs84_pos#" 
+      xmlns:cc="http://creativecommons.org/ns#"
+      xmlns:wot="http://xmlns.com/wot/0.1/"
+      xmlns:owl="http://www.w3.org/2002/07/owl#"
+      xmlns:rsa="http://www.w3.org/ns/auth/rsa#"
+      xmlns:cert="http://www.w3.org/ns/auth/cert#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+ <rdf:Description rdf:about="http://users.ecs.soton.ac.uk/mmt04r/research.php">
+	<dc:title>Mischa Tuffield's Publications</dc:title>
+ </rdf:Description>
+
+ <rdf:Description>
+	<rdf:type rdf:resource="http://xmlns.com/wot/0.1/PubKey"/>
+	<dc:title>Mischa's Public Key Bnode</dc:title>
+	<wot:fingerprint>18A2AF280CA59E77AE512BB39ED0B04E51F2F7EF</wot:fingerprint>
+        <wot:hex_id>51F2F7EF</wot:hex_id>
+        <wot:identity rdf:resource="http://mmt.me.uk/foaf.rdf#mischa"/>
+        <wot:length rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4096</wot:length>
+        <wot:pubkeyAddress rdf:resource="http://mmt.me.uk/mischa.pubkey.asc"/>
+ </rdf:Description>
+
+ <foaf:PersonalProfileDocument rdf:about="">
+	<wot:assurance rdf:resource="http://mmt.me.uk/foaf.rdf.asc" />
+	<dc:title>Mischa Moussavian Tuffield&apos;s FOAF file</dc:title>
+	<rdfs:label>Mischa Moussavian Tuffield&apos;s FOAF file</rdfs:label>
+	<dc:description>Friend-Of-A-Friend description of Mischa Tuffield in machine-readable RDF-XML</dc:description>
+  	<dc:creator rdf:resource="http://mmt.me.uk/foaf.rdf#mischa"/>
+  	<foaf:maker rdf:resource="http://mmt.me.uk/foaf.rdf#mischa"/>
+  	<foaf:primaryTopic rdf:resource="http://mmt.me.uk/foaf.rdf#mischa"/>
+	<cc:license rdf:resource="http://creativecommons.org/licenses/by-nc/3.0/"/>
+ </foaf:PersonalProfileDocument>
+
+ <foaf:Person rdf:ID="mischa">
+ 	<dc:description>I am a web geek, with interests in personal information, data ownership, privacy, and the Semantic Web. I was the editor of the W3C's Social Web Incubator Group's final report and am currently a member of the W3C's RDF Working Group. I have a PhD from the University of Southampton under the supervision of Prof. Nigel Shadbolt on Lifelogging and the future of memory. I tend to lurk on #swig, #foaf, #4store, and #hadoop on freenode under the alias of mischat.</dc:description>
+	<foaf:name>Mischa Tuffield</foaf:name>
+	<foaf:title>Dr</foaf:title>
+	<foaf:givenname>Mischa</foaf:givenname>
+	<foaf:family_name>Tuffield</foaf:family_name>
+	<foaf:nick>mischat</foaf:nick>
+	<foaf:gender>Male</foaf:gender>
+	<foaf:openid rdf:resource="http://mmt.me.uk/blog/"/>
+	<foaf:mbox_sha1sum>13dbc4ea7e4fc55ae706562a14ab5b444f805d8c</foaf:mbox_sha1sum>
+	<foaf:mbox_sha1sum>01561a512d2a2e067b70ad9d0ea8b28d73cd9ed7</foaf:mbox_sha1sum>
+	<foaf:geekcode>GCS/IT/E/ED d- s:+ a- c++++ UL+++ P+++++ L+++ E--- W+++ N O? k? w-- o? M++ V? PS+++ PE- Y+ PGP++ 5-- X-- R+ tv- b+ DI D--- G- e++++ h-- r- y+++++ z**</foaf:geekcode>
+	<foaf:homepage rdf:resource="http://users.ecs.soton.ac.uk/mmt04r/"/>
+	<foaf:homepage rdf:resource="http://mmt.me.uk/"/>
+	<foaf:weblog rdf:resource="http://mmt.me.uk/blog/"/>
+	<foaf:weblog rdf:resource="http://www.flickr.com/photos/26333586@N00/"/>
+	<foaf:depiction rdf:resource="http://mmt.me.uk/images/me.jpg"/>
+	<dc:identifier> 
+		<foaf:depiction rdf:about="http://mmt.me.uk/images/qr.png"/>
+	</dc:identifier> 
+	<foaf:workplaceHomepage rdf:resource="http://www.peerindex.com/"/>
+	<foaf:schoolHomepage rdf:resource="http://www.ecs.soton.ac.uk/"/>
+	<foaf:schoolHomepage rdf:resource="http://inf.ed.ac.uk/"/>
+	<foaf:publications rdf:resource="http://users.ecs.soton.ac.uk/mmt04r/research.php"/>
+	<foaf:logo rdf:resource="http://mmt.me.uk/images/WiltedButtercup-small.png"/>
+
+	<!-- FOAF Expansion Stuff-->
+	<rdfs:seeAlso rdf:resource="http://sameas.org/?uri=http://mmt.me.uk/foaf.rdf%23mischa"/>
+
+	<cert:key>
+	  <cert:RSAPublicKey>
+	   <cert:exponent rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65537</cert:exponent>
+	   <cert:modulus rdf:datatype="http://www.w3.org/2001/XMLSchema#hexBinary">e7667f3211b800705be6712544e192cc1fe1410895f287947d72b8f524b3442a3344fa2282255d6a24956bd3c64d4133ab795d3a74b3ec4f779b1d8653cf7e2a4acd290bc648614f8fc1b0c3c19d27ca139a0736c88d97ab612263d95ceb87c5c76805428bacb4f6cff44616248ab18bc8a84cdda0157f523877eb873d9f536fbce5c836c312c4ce29ec8723060dab2e352d425c9d1f485c6709677ba8dc98fcddb04fed398f9a6153f125ba66dda1e65717f9ca29a07e90edd5d90dc94acb26ebdfec6174fceaab2e691ea08469d222b764146a4d98265d2865c3807e484223b6ab4c8fc738bf0806e0e3cfbb5d37ea095c658051c7ccbf1ce6ae28c9d14f6d</cert:modulus>
+	  </cert:RSAPublicKey>
+	</cert:key>
+
+	<foaf:based_near>
+	  <pos:Point>
+		<dc:title>New King's Road</dc:title> 
+		<pos:lat>51.46791</pos:lat> 
+		<pos:long>-0.20238</pos:long> 
+	  </pos:Point> 
+	</foaf:based_near> 
+
+	<foaf:knows rdf:resource="http://danbri.org/foaf.rdf#danbri"/>
+
+	<foaf:knows rdf:resource="http://bblfish.net/people/henry/card#me"/>
+	
+	<foaf:knows rdf:resource="http://sixhills-consulting.com/foaf/agueritz/foaf.rdf#me"/>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Hugh Glaser</foaf:name>
+			<foaf:mbox_sha1sum>623018b35a1850179ed2903e332d96978eeb1d4f</foaf:mbox_sha1sum>
+		</foaf:Person>
+	</foaf:knows>
+	
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Wendy Hall</foaf:name>
+			<foaf:mbox rdf:resource="mailto:wh@ecs.soton.ac.uk"/>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://www.w3.org/People/Berners-Lee/card#i">
+			<foaf:name>Tim Berners-Lee</foaf:name>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://www.dcs.shef.ac.uk/~mrowe/foaf.rdf#me">
+			<foaf:name>Matthew Rowe</foaf:name>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://moustaki.org/foaf.rdf#moustaki">
+			<foaf:name>Yves Raimond</foaf:name>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Oshani Seneviratne</foaf:name>
+			<foaf:homepage rdf:resource="http://people.csail.mit.edu/oshani/"/>
+		</foaf:Person>
+	</foaf:knows>	
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Patrick Sinclair</foaf:name>
+			<foaf:mbox_sha1sum>7fda53d68ed5cd2d511409397900404a0c0001d4</foaf:mbox_sha1sum>
+			<rdfs:seeAlso rdf:resource="http://metade.org/foaf.rdf"/>
+		</foaf:Person>
+	</foaf:knows>	
+
+	<foaf:knows rdf:resource="http://swordfish.rdfweb.org/people/libby/rdfweb/webwho.xrdf"/>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>David de Roure</foaf:name>
+			<foaf:mbox_sha1sum>92d8538c2d7cf626d450cccf5112436e93ecf2db</foaf:mbox_sha1sum>
+			<foaf:mbox_sha1sum>d72ad52c74875d607575927db8a4d78d725c3c16</foaf:mbox_sha1sum>
+			<foaf:mbox_sha1sum>99b136907bfebdaef36794bf8633f4f34928dfd9</foaf:mbox_sha1sum>
+			<foaf:workInfoHomepage rdf:resource="http://www.ecs.soton.ac.uk/info/people/dder"/>
+			<rdfs:seeAlso rdf:resource="http://www.ecs.soton.ac.uk/~dder/dder.xrdf"/>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Ian Millard</foaf:name>
+			<foaf:mbox_sha1sum>d2fe0a32cc9a0000993b21b81b6c080f89d0aa4c</foaf:mbox_sha1sum>
+			<foaf:homepage rdf:resource="http://www.ecs.soton.ac.uk/people/icm02r"/>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Mike Jewell</foaf:name>
+			<foaf:homepage rdf:resource="http://www.mikesroom.org/"/>
+			<foaf:weblog rdf:resource="http://blog.mikesroom.org/"/>
+		</foaf:Person>
+	</foaf:knows>	
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://www.aelius.com/njh#me">
+			<foaf:name>Nicholas J Humfrey</foaf:name>
+			<foaf:mbox_sha1sum>3f361af12a473b48852819e3ff9153783149a26a</foaf:mbox_sha1sum>
+			<foaf:homepage rdf:resource="http://www.aelius.com/njh/"/>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://users.ecs.soton.ac.uk/ao05r/personal/foaf.rdf#me">
+			<foaf:name>Asma Ounnas</foaf:name>
+			<foaf:mbox_sha1sum>d9472abff86e3d8983885d3380c137161bd50245</foaf:mbox_sha1sum>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://identifiers.kmi.open.ac.uk/people/enrico-motta/">
+			<foaf:name>Enrico Motta</foaf:name>
+			<foaf:mbox_sha1sum>28a0f82609671f47d811e6bee865afb23abfb8db</foaf:mbox_sha1sum>
+			<foaf:homepage rdf:resource="http://kmi.open.ac.uk/people/motta/"/>
+		</foaf:Person>
+	</foaf:knows>
+	
+	<foaf:knows>
+		<foaf:Person rdf:about="http://identifiers.kmi.open.ac.uk/people/john-domingue/">
+			<foaf:name>John Domingue</foaf:name>
+			<foaf:mbox_sha1sum>ee358e3b2e0d8a6dd78e3b2ae9d56dd03a2c5941</foaf:mbox_sha1sum>
+			<foaf:homepage rdf:resource="http://kmi.open.ac.uk/people/john/"/>
+		</foaf:Person>
+	</foaf:knows>
+	
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Paul Groth</foaf:name>
+			<foaf:mbox_sha1sum>e9f84be5d6366a2264d775afdb6627bb2a314acf</foaf:mbox_sha1sum>
+			<foaf:homepage rdf:resource="http://www.isi.edu/~pgroth"/>
+		</foaf:Person>
+	</foaf:knows>
+	
+	<foaf:knows>
+		<foaf:Person rdf:about="http://id.ecs.soton.ac.uk/person/9639">
+			<foaf:name>Antonis Loziou</foaf:name>
+			<foaf:mbox_sha1sum>c133271c93f7b9fb1f78992f737d947e02b57f8a</foaf:mbox_sha1sum>
+			<rdfs:seeAlso rdf:resource="http://users.ecs.soton.ac.uk/al05r/foaf.rdf"/>
+		</foaf:Person>
+	</foaf:knows>
+ 	
+	<foaf:knows>
+    		<foaf:Person>
+      			<foaf:name>Nick Gibbins</foaf:name>
+      			<foaf:nick>nmg</foaf:nick>
+			<foaf:mbox rdf:resource="mailto:nmg@ecs.soton.ac.uk"/>
+      			<rdfs:seeAlso rdf:resource="http://users.ecs.soton.ac.uk/nmg/nmg-foaf.rdf"/>
+		 </foaf:Person>
+  	</foaf:knows>
+	
+	<foaf:knows>
+        	<foaf:Person>
+                	<foaf:name>Fabio Ciravegna</foaf:name>
+                        <foaf:givenname>Fabio</foaf:givenname>
+                        <foaf:surname>Ciravegna</foaf:surname>
+                        <foaf:mbox rdf:resource="mailto:fabio@dcs.shef.ac.uk" />
+                </foaf:Person>
+        </foaf:knows>
+	
+	<foaf:knows>
+		<foaf:Person rdf:about="http://www.dcs.shef.ac.uk/~sam/foaf.rdf#samchapman">
+			<foaf:name>Sam Chapman</foaf:name>
+			<foaf:mbox_sha1sum>ed12ac7d755e51653bc11745142ffe57d4168fdc</foaf:mbox_sha1sum>
+		</foaf:Person>
+	</foaf:knows>
+
+ 	<foaf:knows>
+		<foaf:Person rdf:about="http://identifiers.kmi.open.ac.uk/people/michele-pasin/">
+        		<rdfs:seeAlso rdf:resource="http://kmi.open.ac.uk/people/mikele/foaf.rdf"/>
+		        <foaf:mbox_sha1sum>97ddc048d1a7df5e6fcb8f530777896a395d3dc1</foaf:mbox_sha1sum>
+        		<foaf:name>Michele Pasin</foaf:name>
+		</foaf:Person>
+    	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Steve Harris</foaf:name>
+	      		<foaf:nick>swh</foaf:nick>
+			<foaf:mbox_sha1sum>44bc4fed584a2d1ac8fc55206db67656165d67fd</foaf:mbox_sha1sum>
+			<rdfs:seeAlso rdf:resource="http://plugin.org.uk/swh.xrdf"/>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://tomheath.com/id/me">
+			<rdfs:seeAlso rdf:resource="http://tomheath.com/home/rdf"/>
+			<foaf:homepage rdf:resource="http://tomheath.com/home/html"/>
+	       		<foaf:name>Tom Heath</foaf:name>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://id.ecs.soton.ac.uk/person/5877"> 
+			<rdfs:seeAlso rdf:resource="http://users.ecs.soton.ac.uk/mns2/foaf.rdf"/>
+			<foaf:name>Martin Szomszor</foaf:name>
+			<foaf:givenname>Martin</foaf:givenname>
+			<foaf:surname>Szomszor</foaf:surname>
+			<foaf:mbox_sha1sum>6a23f2cd1b8d602a9e665658d3a5b135b72a04fd</foaf:mbox_sha1sum>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Terry R Payne</foaf:name>
+			<foaf:mbox rdf:resource="mailto:T.R.Payne@liverpool.ac.uk"/>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<rdfs:seeAlso rdf:resource="http://users.ecs.soton.ac.uk/das05r/das301.xrdf"/>
+			<foaf:name>Daniel Alexander Smith</foaf:name>
+			<foaf:mbox_sha1sum>5709f82a90407d95dd1319e7a21dc9a21a5ad235</foaf:mbox_sha1sum>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://users.ecs.soton.ac.uk/nrs/foaf.rdf#me">
+			<foaf:name>Nigel Shadbolt</foaf:name>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://users.ecs.soton.ac.uk/mlw05r/foaf.xrdf">
+			<foaf:name>Max Wilson</foaf:name>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://users.ecs.soton.ac.uk/aoj04r/foaf.rdf#me">
+			<foaf:name>Afraz Jaffri</foaf:name>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person rdf:about="http://users.ecs.soton.ac.uk/mc/mcfoaf.rdf">
+			<foaf:name>dr mc schraefel</foaf:name>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Tom Ilube</foaf:name>
+			<foaf:mbox_sha1sum>a8084b745be5ca1d33f89025be2587f8f92d6d52</foaf:mbox_sha1sum>
+			<rdfs:seeAlso rdf:resource="http://qdos.com/people/tom.xrdf"/>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Andy Thomas</foaf:name>
+			<foaf:mbox_sha1sum>e82619232f833cd68c388dcb1ffe00af52e0f91c</foaf:mbox_sha1sum>
+			<rdfs:seeAlso rdf:resource="http://qdos.com/people/andy.xrdf"/>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:knows>
+		<foaf:Person>
+			<foaf:name>Luke Wilson-Mawer</foaf:name>
+			<foaf:mbox_sha1sum>cdd70a4226b1b980e49b6e3a85471ac4d94d7483</foaf:mbox_sha1sum>
+		</foaf:Person>
+	</foaf:knows>
+
+	<foaf:pastProject>
+		<foaf:Project rdf:about="http://id.ecs.soton.ac.uk/project/45">
+			<foaf:name>Advanced Knowledge Technologies</foaf:name>
+			<foaf:homepage rdf:resource="http://www.aktors.org/"/>
+			<rdfs:seeAlso rdf:resource="http://rdf.ecs.soton.ac.uk/project/45"/>
+		</foaf:Project>
+	</foaf:pastProject>
+
+	<foaf:pastProject>
+		<foaf:Project rdf:about="http://id.ecs.soton.ac.uk/project/309">
+			<foaf:name>Ontomedia</foaf:name>
+			<rdfs:seeAlso rdf:resource="http://rdf.ecs.soton.ac.uk/project/309"/>
+		</foaf:Project>
+	</foaf:pastProject>
+
+	<foaf:currentProject>
+		<foaf:Project>
+			<foaf:name>PeerIndex</foaf:name>
+			<foaf:homepage rdf:resource="http://www.peerindex.com/"/>
+		</foaf:Project>
+	</foaf:currentProject>
+
+	<foaf:currentProject>
+		<foaf:Project>
+			<foaf:name>4store</foaf:name>
+			<foaf:homepage rdf:resource="http://www.garlik.com/"/>
+		</foaf:Project>
+	</foaf:currentProject>
+
+        <foaf:pastProject>
+		<foaf:Project>
+			<foaf:name>Garlik</foaf:name>
+			<foaf:homepage rdf:resource="http://www.garlik.com/"/>
+		</foaf:Project>
+	</foaf:pastProject>
+
+        <foaf:pastProject>
+		<foaf:Project>
+			<foaf:name>QDOS</foaf:name>
+		 	<foaf:homepage rdf:resource="http://qdos.com/"/>
+			<rdfs:comment>People Ranking site, part of Garlik</rdfs:comment>
+		</foaf:Project>
+	</foaf:pastProject>
+
+        <foaf:pastProject>
+		<foaf:Project>
+			<foaf:name>5store</foaf:name>
+			<rdfs:comment>A very large-scale RDF store that runs on huge clusters, will run future Garlik systems</rdfs:comment>
+		</foaf:Project>
+	</foaf:pastProject>
+
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Category:Artificial_intelligence" dc:title="Artificial Intelligence"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Beer" dc:title="Beer"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Brutal_Death%20Metal" dc:title="Brutal Death Metal"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Data" dc:title="Data"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Drums_(musical%20instrument)" dc:title="DrumBeers (the instrument)"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Grindcore" dc:title="Grindcore"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Guitar" dc:title="Guitar"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Heavy_Metal%20music" dc:title="Heavy Metal music"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Juggling_balls" dc:title="Juggling balls"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Linux_(operating%20system)" dc:title="Linux (OS)"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Nintendo" dc:title="Nintendo"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Perl_(programming%20language)" dc:title="Perl (programming language)"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Photography" dc:title="Photography"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Category:Privacy" dc:title="Privacy"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/RDF" dc:title="RDF"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Rock_Climbing" dc:title="Rock Climbing"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Rock_climbing%20in%20the%20Peak%20District" dc:title="Rock climbing in the Peak District"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Semantic_Web" dc:title="Semantic Web"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Category:Science" dc:title="Science"/>
+	<foaf:interest rdf:resource="http://dbpedia.org/page/Technical_Death%20Metal" dc:title="Technical Death Metal"/>
+
+	<foaf:holdsAccount rdf:resource="http://irc.sioc-project.org/users/mischat#user"/>
+
+	<foaf:holdsAccount> 
+	  <foaf:OnlineAccount> 
+	      <foaf:name>flickr</foaf:name>
+	      <foaf:accountServiceHomepage rdf:resource="http://www.flickr.com/"/> 
+	      <foaf:accountName>mischatuffield</foaf:accountName> 
+	  </foaf:OnlineAccount> 
+	</foaf:holdsAccount>
+
+	<foaf:holdsAccount> 
+	  <foaf:OnlineAccount> 
+	      <foaf:name>github</foaf:name>
+	      <foaf:accountServiceHomepage rdf:resource="http://github.com/"/> 
+	      <foaf:accountName>mischat</foaf:accountName> 
+	  </foaf:OnlineAccount> 
+	</foaf:holdsAccount>
+
+	<foaf:holdsAccount> 
+	  <foaf:OnlineAccount> 
+	      <foaf:name>Last.fm</foaf:name>
+	      <foaf:accountServiceHomepage rdf:resource="http://www.last.fm/"/> 
+	      <foaf:accountName>MischaTuffield</foaf:accountName> 
+	  </foaf:OnlineAccount> 
+	</foaf:holdsAccount>
+
+	<foaf:holdsAccount>
+	  <foaf:OnlineAccount>
+		<foaf:accountServiceHomepage rdf:resource="http://www.skype.com/"/>
+		<foaf:accountName>mischatuffield</foaf:accountName>
+		<rdfs:seeAlso rdf:resource="http://mystatus.skype.com/mischatuffield.xml"/>
+	  </foaf:OnlineAccount>
+	</foaf:holdsAccount>
+
+	<foaf:holdsAccount>
+	  <foaf:OnlineAccount>
+		<foaf:accountServiceHomepage rdf:resource="http://www.facebook.com/"/>
+		<foaf:accountName>744887118</foaf:accountName>
+	  </foaf:OnlineAccount>
+	</foaf:holdsAccount>
+
+	<foaf:holdsAccount>
+	  <foaf:OnlineAccount>
+		<foaf:accountServiceHomepage rdf:resource="http://www.linkedin.com/"/>
+		<foaf:accountName>mtuffield</foaf:accountName>
+	  </foaf:OnlineAccount>
+	</foaf:holdsAccount>
+
+ </foaf:Person>
+
+</rdf:RDF>

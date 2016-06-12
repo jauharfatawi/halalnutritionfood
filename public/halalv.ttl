@@ -10,6 +10,7 @@
 @prefix halali: <http://example.com/ingredient/> .
 @prefix halals: <http://example.com/halalsource/> .
 @prefix halalc: <http://example.com/certificate/> .
+@prefix halalm: <http://example.com/manufacture/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 
@@ -363,8 +364,12 @@ halalv:certificate a rdfs:Property;
     rdfs:domain halalv:FoodProduct;
     rdfs:range halalv:HalalCertificate.
 
+halalv:Manufacture a rdfs:Class, owl:Class;
+    rdfs:label "Product Manufacture";
+    rdfs:comment "Manufacture that make and distribute food product.".
+
 halalv:manufacture a rdfs:Property, owl:DatatypeProperty;
     rdfs:label "Manufacture";
     rdfs:comment "Manufacture that product or make a product.";
     rdfs:domain halalv:Food, halalv:Ingredient;
-    rdfs:range xsd:String.
+    rdfs:range halalv:Manufacture.

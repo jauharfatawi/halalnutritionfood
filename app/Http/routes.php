@@ -53,3 +53,4 @@ Route::controller('api', 'ApiController',[
 	'getWriteToTurtle' => 'api.writeTurtle',
 ]);
 
+Route::controller('RDFBrowser', 'RDFBrowserController');
