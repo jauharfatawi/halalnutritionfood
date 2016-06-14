@@ -23,7 +23,7 @@
 <div style="margin: 10px">
     {!! Form::open(['url'=>'RDFBrowser','method' => 'get']) !!}
     URI: 
-    {!! Form::text('uri', 'http://halalnutritionfood.com/turtle.ttl', ['size'=>80])!!} </br>
+    {!! Form::text('uri', 'http://halalnutritionfood.com/resources.ttl', ['size'=>80])!!} </br>
     Format: 
     {!! Form::label('format_html','HTML',['id'=>'label_for_format_html']) !!}
     {!! Form::radio('format', 'HTML', ['id'=>'format_html', 'checked'=>'checked']) !!}</br>
