@@ -1,4 +1,0 @@
-
-                    halali:347 a halalv:Ingredient;
-                    	halalv:rank 347;
-                    	rdfs:label "Soya Lecithin".

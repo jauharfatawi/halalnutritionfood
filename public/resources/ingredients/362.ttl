@@ -1,4 +1,0 @@
-
-                    halali:362 a halalv:Ingredient;
-                    	halalv:rank 362;
-                    	rdfs:label "Sesame Seeds Peanuts".

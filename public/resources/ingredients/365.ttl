@@ -1,4 +1,0 @@
-
-                    halali:365 a halalv:Ingredient;
-                    	halalv:rank 365;
-                    	rdfs:label "Natural".

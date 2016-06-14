@@ -1,5 +1,0 @@
-halals:137 a halalv:Source;
-	rdfs:label "Halal";
-	rdfs:comment "Miscellaneous - Citric Acid and its Salts";
-	foaf:organization "Muslim Customer Group";
-	rdfs:seeAlso <http://www.muslimconsumergroup.com/e-numbers_list.html>.

@@ -1,2 +1,0 @@
-halalm:5 a halalv:Manufacture;
-	rdfs:label "PT. Arnott`s Indonesia".

@@ -1,4 +1,0 @@
-
-                    halali:402 a halalv:Ingredient;
-                    	halalv:rank 402;
-                    	rdfs:label "Peanuts".

@@ -1,2 +1,0 @@
-halalm:4 a halalv:Manufacture;
-	rdfs:label "PT. Unilever Indonesia Tbk".

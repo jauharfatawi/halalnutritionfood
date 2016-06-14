@@ -1,4 +1,0 @@
-halali:24 a halalv:FoodAdditive;
-	halalv:rank 24;
-	rdfs:label "Brilliant Blue FCF";
-	rdfs:comment "E133".

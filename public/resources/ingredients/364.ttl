@@ -1,4 +1,0 @@
-
-                    halali:364 a halalv:Ingredient;
-                    	halalv:rank 364;
-                    	rdfs:label "Skimmed Milk".

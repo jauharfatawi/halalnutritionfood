@@ -1,4 +1,0 @@
-
-                    halali:351 a halalv:Ingredient;
-                    	halalv:rank 351;
-                    	rdfs:label "Glucose Syrup".

@@ -1,4 +1,0 @@
-
-                    halali:350 a halalv:Ingredient;
-                    	halalv:rank 350;
-                    	rdfs:label "Skimmed Milk Powder".

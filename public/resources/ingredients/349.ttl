@@ -1,4 +1,0 @@
-
-                    halali:349 a halalv:Ingredient;
-                    	halalv:rank 349;
-                    	rdfs:label "Chocolate Sraying".

@@ -1,4 +1,0 @@
-
-                    halali:361 a halalv:Ingredient;
-                    	halalv:rank 361;
-                    	rdfs:label "Eggs".

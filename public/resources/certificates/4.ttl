@@ -1,5 +1,0 @@
-halalc:4 a halalv:HalalCertificate;
-	halalv:halalCode "00290047180208	";
-	halalv:halalExp "2018-06-01"^^xsd:date;
-	halalv:halalStatus "Renew";
-	foaf:organization "Majelis Ulama Indonesia".

@@ -1,4 +1,0 @@
-
-                    halali:357 a halalv:Ingredient;
-                    	halalv:rank 357;
-                    	rdfs:label "Cream".

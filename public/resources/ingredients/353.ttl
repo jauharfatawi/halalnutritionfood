@@ -1,4 +1,0 @@
-
-                    halali:353 a halalv:Ingredient;
-                    	halalv:rank 353;
-                    	rdfs:label "Cocoa Powder".

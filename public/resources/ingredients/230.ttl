@@ -1,4 +1,0 @@
-halali:230 a halalv:FoodAdditive;
-	halalv:rank 230;
-	rdfs:label "Sodium carbonate";
-	rdfs:comment "E500".

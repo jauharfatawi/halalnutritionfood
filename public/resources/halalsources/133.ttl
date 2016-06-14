@@ -1,5 +1,0 @@
-halals:133 a halalv:Source;
-	rdfs:label "Halal";
-	rdfs:comment "Emulsifiers and Stabilizers It now days made from soy fat or Suitable for vegetarian label indicates that only soy fat is used as a source.";
-	foaf:organization "Muslim Customer Group";
-	rdfs:seeAlso <http://www.muslimconsumergroup.com/e-numbers_list.html>.
