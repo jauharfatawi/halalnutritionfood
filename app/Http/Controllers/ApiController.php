@@ -106,6 +106,7 @@ class ApiController extends Controller
     public function getWriteToTurtle()
     {
         $turtlefile = fopen("resources.ttl", "w");
+        chmod("resources.ttl", 0777);
         // $vocabfile = file_get_contents('halalv.ttl', true);
         $prefix = "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -168,6 +169,7 @@ class ApiController extends Controller
             // fwrite($turtlefile, $insertManufacture);
             $fileManufacture = "resources/manufactures/".$foodProducts[$fp]['id'].".ttl";
             $resManufacture = fopen($fileManufacture, "w");
+            fwrite($resManufacture, $prefix."\n");
             fwrite($resManufacture, $insertManufacture);
             fclose($resManufacture);
             chmod($fileManufacture, 0777);
@@ -198,6 +200,7 @@ class ApiController extends Controller
                 // fwrite($turtlefile, $insertCertificate);
                 $fileCertificate = "resources/certificates/".$certificate[$id]->id.".ttl";
                 $resCertificate = fopen($fileCertificate, "w");
+                fwrite($resCertificate, $prefix."\n");
                 fwrite($resCertificate, $insertCertificate);
                 fclose($resCertificate);
                 chmod($fileCertificate, 0777);
@@ -230,6 +233,7 @@ class ApiController extends Controller
                     // fwrite($turtlefile, $insertIngredient);
                     $fileIngredient = "resources/ingredients/".$ingredient[$id]->id.".ttl";
                     $resIngredient = fopen($fileIngredient, "w");
+                    fwrite($resIngredient, $prefix."\n");
                     fwrite($resIngredient, $insertIngredient);
                     fclose($resIngredient);
                     chmod($fileIngredient, 0777);  //changed to add the zero
@@ -269,6 +273,7 @@ class ApiController extends Controller
                         // fwrite($turtlefile, $insertHalal);
                         $fileHalalSource = "resources/halalsources/".$halal[$id]->id.".ttl";
                         $resHalalSource = fopen($fileHalalSource, "w");
+                        fwrite($resHalalSource, $prefix."\n");
                         fwrite($resHalalSource, $insertHalal);
                         fclose($resHalalSource);
                         chmod($fileHalalSource, 0777);  //changed to add the zero
@@ -286,7 +291,6 @@ class ApiController extends Controller
         fclose($resFoodProduct);
         chmod($fileFoodProduct, 0777);
         fclose($turtlefile);
-        chmod("resources.ttl", 0777);
         // fclose("turtle.ttl");
         echo "berhasil";
         //jalankan skrip ke fuseki
