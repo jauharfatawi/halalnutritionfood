@@ -36,8 +36,8 @@ halalf:4 halalv:certificate halalc:4.
 
 halalf:4 halalv:containsIngredient halali:345, halali:346, halali:347, halali:46, halali:348, halali:349, halali:340, halali:350, halali:342, halali:71, halali:339, halali:351, halali:133, halali:352, halali:353, halali:354, halali:355, halali:356, halali:357, halali:39, halali:358, halali:24.
 
-halali:46 halalv:halalSource halals:46, halals:355
-halali:71 halalv:halalSource halals:71, halals:380
-halali:133 halalv:halalSource halals:133, halals:434
-halali:39 halalv:halalSource halals:39, halals:351
-halali:24 halalv:halalSource halals:24, halals:347
+halali:46 halalv:halalSource halals:46, halals:355.
+halali:71 halalv:halalSource halals:71, halals:380.
+halali:133 halalv:halalSource halals:133, halals:434.
+halali:39 halalv:halalSource halals:39, halals:351.
+halali:24 halalv:halalSource halals:24, halals:347.

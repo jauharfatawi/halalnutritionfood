@@ -1,0 +1,5 @@
+disertakan hubungan dengan jumlah user dan bandwith
+pakai enumerate di kesimpulan
+dipisah, dataset produk, dataset zat aditif
+memasukkan zat adiif dan produk dibuang
+saran: gamifikasi, acceptence

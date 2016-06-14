@@ -36,8 +36,8 @@ halalf:13 halalv:certificate halalc:6.
 
 halalf:13 halalv:containsIngredient halali:340, halali:364, halali:365, halali:366, halali:137, halali:367, halali:74, halali:3, halali:21, halali:24, halali:345.
 
-halali:137 halalv:halalSource halals:137, halals:438
-halali:74 halalv:halalSource halals:74, halals:383
-halali:3 halalv:halalSource halals:3, halals:335
-halali:21 halalv:halalSource halals:21
-halali:24 halalv:halalSource halals:24, halals:347
+halali:137 halalv:halalSource halals:137, halals:438.
+halali:74 halalv:halalSource halals:74, halals:383.
+halali:3 halalv:halalSource halals:3, halals:335.
+halali:21 halalv:halalSource halals:21.
+halali:24 halalv:halalSource halals:24, halals:347.

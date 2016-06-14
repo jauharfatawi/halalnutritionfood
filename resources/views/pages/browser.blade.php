@@ -34,7 +34,27 @@
 
 <?php
     if (isset($_REQUEST['uri'])) {
-        $graph = EasyRdf_Graph::newAndLoad($_REQUEST['uri']);
+        // rtrim cek ttl kalau gk tambah ttl
+        // jangan lupa chmod
+        // dd(substr($_REQUEST['uri'], 0, -4));
+        $uri = strstr($_REQUEST['uri'], '#', true);
+        if(!$uri){
+            if(substr($_REQUEST['uri'], -4) == ".ttl") {
+                $uri = $_REQUEST['uri'];
+            }
+            else{
+                $uri = $_REQUEST['uri'].'.ttl';
+            }
+        }
+        else{
+            if(substr($uri, -4) == ".ttl") {
+                $uri = $uri.strstr($_REQUEST['uri'], '#');
+            }
+            else{
+                $uri = $uri.'.ttl'.strstr($_REQUEST['uri'], '#');   
+            }
+        }
+        $graph = EasyRdf_Graph::newAndLoad($uri);
         if ($graph) {
             if (isset($_REQUEST['format']) && $_REQUEST['format'] == 'text') {
                 print "<pre>".$graph->dump('text')."</pre>";

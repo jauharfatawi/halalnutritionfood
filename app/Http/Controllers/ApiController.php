@@ -156,7 +156,8 @@ class ApiController extends Controller
 \thalalv:iron ".$foodProducts[$fp]['iron'].".\n";
             // fwrite($turtlefile, $list[$fp]);
 
-            $resFoodProduct = fopen("resources/foodproducts/".$foodProducts[$fp]['id'].".ttl", "w");
+            $fileFoodProduct = "resources/foodproducts/".$foodProducts[$fp]['id'].".ttl";
+            $resFoodProduct = fopen($fileFoodProduct, "w");
             fwrite($resFoodProduct, $prefix."\n");
             fwrite($resFoodProduct, $list[$fp]);
             // fclose($resFoodProduct);
@@ -165,9 +166,11 @@ class ApiController extends Controller
             $insertManufacture = "halalm:".$foodProducts[$fp]['id']." a halalv:Manufacture;
 \trdfs:label \"".$getManufacture[0]->fManufacture."\".\n";            
             // fwrite($turtlefile, $insertManufacture);
-            $resManufacture = fopen("resources/manufactures/".$foodProducts[$fp]['id'].".ttl", "w");
+            $fileManufacture = "resources/manufactures/".$foodProducts[$fp]['id'].".ttl";
+            $resManufacture = fopen($fileManufacture, "w");
             fwrite($resManufacture, $insertManufacture);
             fclose($resManufacture);
+            chmod($fileManufacture, 0777);
 
             $hasManufacture = "\nhalalf:".$foodProducts[$fp]['id']." halalv:manufacture halalm:".$foodProducts[$fp]['id'].".";
             // fwrite($turtlefile, $hasManufacture);
@@ -193,9 +196,11 @@ class ApiController extends Controller
 \thalalv:halalStatus \"".$cStatus."\";
 \tfoaf:organization \"".$certificate[$id]->cOrganization."\".";
                 // fwrite($turtlefile, $insertCertificate);
-                $resCertificate = fopen("resources/certificates/".$certificate[$id]->id.".ttl", "w");
+                $fileCertificate = "resources/certificates/".$certificate[$id]->id.".ttl";
+                $resCertificate = fopen($fileCertificate, "w");
                 fwrite($resCertificate, $insertCertificate);
                 fclose($resCertificate);
+                chmod($fileCertificate, 0777);
             }
 
             $hasCertificate = "\nhalalf:".$foodProducts[$fp]['id']." halalv:certificate ";
@@ -223,9 +228,11 @@ class ApiController extends Controller
                 }
                 if($ingWritted != $ingredient[$id]->id){
                     // fwrite($turtlefile, $insertIngredient);
-                    $resIngredient = fopen("resources/ingredients/".$ingredient[$id]->id.".ttl", "w");
+                    $fileIngredient = "resources/ingredients/".$ingredient[$id]->id.".ttl";
+                    $resIngredient = fopen($fileIngredient, "w");
                     fwrite($resIngredient, $insertIngredient);
                     fclose($resIngredient);
+                    chmod($fileIngredient, 0777);  //changed to add the zero
                 }
                 $ingWritted = $ingredient[$id]->id;
             }
@@ -260,21 +267,24 @@ class ApiController extends Controller
 \tfoaf:organization \"".$halal[$id]->hOrganization."\";
 \trdfs:seeAlso <".$halal[$id]->hUrl.">.\n";
                         // fwrite($turtlefile, $insertHalal);
-                        $resHalalSource = fopen("resources/halalsources/".$halal[$id]->id.".ttl", "w");
+                        $fileHalalSource = "resources/halalsources/".$halal[$id]->id.".ttl";
+                        $resHalalSource = fopen($fileHalalSource, "w");
                         fwrite($resHalalSource, $insertHalal);
                         fclose($resHalalSource);
+                        chmod($fileHalalSource, 0777);  //changed to add the zero
 
                         $halalIng = $halalIng."halals:".$getHalalFK[$id]->halal_id.", ";
                         
                     }
                     // fwrite($turtlefile, rtrim($halalIng,", \"").".\n");
-                    fwrite($resFoodProduct, rtrim($halalIng,", \""));
+                    fwrite($resFoodProduct, rtrim($halalIng,", \"").".");
                     
                 }
             }
             
         }
         fclose($resFoodProduct);
+        chmod($fileFoodProduct, 0777);
         // fclose("turtle.ttl");
         echo "berhasil";
         //jalankan skrip ke fuseki

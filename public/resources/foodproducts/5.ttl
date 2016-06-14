@@ -36,4 +36,4 @@ halalf:5 halalv:certificate halalc:5.
 
 halalf:5 halalv:containsIngredient halali:346, halali:359, halali:340, halali:360, halali:353, halali:230, halali:361, halali:344, halali:354, halali:362, halali:363.
 
-halali:230 halalv:halalSource halals:230, halals:511
+halali:230 halalv:halalSource halals:230, halals:511.
