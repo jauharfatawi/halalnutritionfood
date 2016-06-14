@@ -1,0 +1,5 @@
+halals:46 a halalv:Source;
+	rdfs:label "Mushbooh";
+	rdfs:comment "Colors It is a synthetic coal tar diazo dye. It is Halal if used as powder. Liquid Brown HT is Halal only if the solvents are Halal.";
+	foaf:organization "Muslim Customer Group";
+	rdfs:seeAlso <http://www.muslimconsumergroup.com/e-numbers_list.html>.

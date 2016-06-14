@@ -1,0 +1,4 @@
+
+                    halali:359 a halalv:Ingredient;
+                    	halalv:rank 359;
+                    	rdfs:label "Choco Chips".

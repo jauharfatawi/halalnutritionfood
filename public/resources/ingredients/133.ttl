@@ -1,0 +1,4 @@
+halali:133 a halalv:FoodAdditive;
+	halalv:rank 133;
+	rdfs:label "Lecithin";
+	rdfs:comment "E322".

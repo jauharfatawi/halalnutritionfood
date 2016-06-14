@@ -1,0 +1,5 @@
+halals:3 a halalv:Source;
+	rdfs:label "Halal";
+	rdfs:comment "Tartazine if obtained from natural source then it is soluble in water then it is Halal. If obtained from synthetic dye then it is Halal only if it mix with vegetable oil.";
+	foaf:organization "Muslim Customer Group";
+	rdfs:seeAlso <http://www.muslimconsumergroup.com/e-numbers_list.html>.

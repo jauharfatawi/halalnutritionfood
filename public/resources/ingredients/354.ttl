@@ -1,0 +1,4 @@
+
+                    halali:354 a halalv:Ingredient;
+                    	halalv:rank 354;
+                    	rdfs:label "Emulsifier".

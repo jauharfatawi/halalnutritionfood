@@ -1,0 +1,39 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix halalv: <http://halalnutritionfood.com/halalv.ttl#> .
+@prefix halalf: <http://halalnutritionfood.com/resources/foodproducts/> .
+@prefix halali: <http://halalnutritionfood.com/resources/ingredients/> .
+@prefix halals: <http://halalnutritionfood.com/resources/halalsources/> .
+@prefix halalc: <http://halalnutritionfood.com/resources/certificates/> .
+@prefix halalm: <http://halalnutritionfood.com/resources/manufactures/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+halalf:5 a halalv:FoodProduct;
+	halalv:foodCode "894755030400";
+	rdfs:label "Good Time Mini";
+	halalv:manufacture "PT. Arnott`s Indonesia";
+	halalv:netWeight 19;
+	halalv:calories 90;
+	halalv:fat 4;
+	halalv:saturatedFat 2.5;
+	halalv:sodium 90;
+	halalv:fiber 2;
+	halalv:sugar 5;
+	halalv:protein 1;
+	halalv:vitaminA 0;
+	halalv:vitaminC 0;
+	halalv:calcium 0;
+	halalv:iron 0.
+
+halalf:5 halalv:manufacture halalm:5.
+
+halalf:5 halalv:certificate halalc:5. 
+
+halalf:5 halalv:containsIngredient halali:346, halali:359, halali:340, halali:360, halali:353, halali:230, halali:361, halali:344, halali:354, halali:362, halali:363.
+
+halali:230 halalv:halalSource halals:230, halals:511.

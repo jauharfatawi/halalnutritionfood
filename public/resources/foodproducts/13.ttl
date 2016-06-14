@@ -1,0 +1,43 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix halalv: <http://halalnutritionfood.com/halalv.ttl#> .
+@prefix halalf: <http://halalnutritionfood.com/resources/foodproducts/> .
+@prefix halali: <http://halalnutritionfood.com/resources/ingredients/> .
+@prefix halals: <http://halalnutritionfood.com/resources/halalsources/> .
+@prefix halalc: <http://halalnutritionfood.com/resources/certificates/> .
+@prefix halalm: <http://halalnutritionfood.com/resources/manufactures/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+halalf:13 a halalv:FoodProduct;
+	halalv:foodCode "839278100340";
+	rdfs:label "Wong Coco Es Bon Bon";
+	halalv:manufacture "PT. Keong Nusantara Abadi";
+	halalv:netWeight 80;
+	halalv:calories 70;
+	halalv:fat 0;
+	halalv:saturatedFat 1;
+	halalv:sodium 10;
+	halalv:fiber 0;
+	halalv:sugar 14;
+	halalv:protein 1;
+	halalv:vitaminA 0;
+	halalv:vitaminC 0;
+	halalv:calcium 0;
+	halalv:iron 0.
+
+halalf:13 halalv:manufacture halalm:13.
+
+halalf:13 halalv:certificate halalc:6. 
+
+halalf:13 halalv:containsIngredient halali:340, halali:364, halali:365, halali:366, halali:137, halali:367, halali:74, halali:3, halali:21, halali:24, halali:345.
+
+halali:137 halalv:halalSource halals:137, halals:438.
+halali:74 halalv:halalSource halals:74, halals:383.
+halali:3 halalv:halalSource halals:3, halals:335.
+halali:21 halalv:halalSource halals:21.
+halali:24 halalv:halalSource halals:24, halals:347.

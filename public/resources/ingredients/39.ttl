@@ -1,0 +1,4 @@
+halali:39 a halalv:FoodAdditive;
+	halalv:rank 39;
+	rdfs:label "Caramel color";
+	rdfs:comment "E150".

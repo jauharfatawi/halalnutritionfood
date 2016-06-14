@@ -1,0 +1,5 @@
+halals:24 a halalv:Source;
+	rdfs:label "Halal";
+	rdfs:comment "Colors It is a chemical dye made from aromatic hydrocarbon from petroleum source. It is soluble in water so do not need any solvent. It is a Halal dye.";
+	foaf:organization "Muslim Customer Group";
+	rdfs:seeAlso <http://www.muslimconsumergroup.com/e-numbers_list.html>.

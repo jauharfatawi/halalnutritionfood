@@ -1,0 +1,4 @@
+
+                    halali:360 a halalv:Ingredient;
+                    	halalv:rank 360;
+                    	rdfs:label "Margarine".

@@ -1,0 +1,2 @@
+halalm:17 a halalv:Manufacture;
+	rdfs:label "PT. Dua Kelinci".

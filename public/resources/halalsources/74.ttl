@@ -1,0 +1,5 @@
+halals:74 a halalv:Source;
+	rdfs:label "Halal";
+	rdfs:comment "Chemical Preservative";
+	foaf:organization "Muslim Customer Group";
+	rdfs:seeAlso <http://www.muslimconsumergroup.com/e-numbers_list.html>.
