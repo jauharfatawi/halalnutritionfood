@@ -1,0 +1,4 @@
+halali:71 a halalv:FoodAdditive;
+	halalv:rank 71;
+	rdfs:label "Potassium sorbate";
+	rdfs:comment "E202".

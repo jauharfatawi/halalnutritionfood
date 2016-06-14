@@ -1,0 +1,4 @@
+
+                    halali:342 a halalv:Ingredient;
+                    	halalv:rank 342;
+                    	rdfs:label "Whey Powder".

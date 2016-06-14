@@ -16,9 +16,9 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head><title>EasyRdf Graph Dumper</title></head>
+<head><title>EasyRdf Graph Browser</title></head>
 <body>
-<h1>EasyRdf Graph Dumper</h1>
+<h1>EasyRdf Graph Browser</h1>
 
 <div style="margin: 10px">
     {!! Form::open(['url'=>'RDFBrowser','method' => 'get']) !!}

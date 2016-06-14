@@ -1,0 +1,4 @@
+halali:21 a halalv:FoodAdditive;
+	halalv:rank 21;
+	rdfs:label "Allura Red AC";
+	rdfs:comment "E129".

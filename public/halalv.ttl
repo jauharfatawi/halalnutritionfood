@@ -6,11 +6,11 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix halalv: <http://halalnutritionfood.com/turtle.ttl#> .
-@prefix halalf: <http://halalnutritionfood.com/foodprduct/> .
-@prefix halali: <http://halalnutritionfood.com/ingredient/> .
-@prefix halals: <http://halalnutritionfood.com/halalsource/> .
-@prefix halalc: <http://halalnutritionfood.com/certificate/> .
-@prefix halalm: <http://halalnutritionfood.com/manufacture/> .
+@prefix halalf: <http://halalnutritionfood.com/resources/foodproducts/> .
+@prefix halali: <http://halalnutritionfood.com/resources/ingredients/> .
+@prefix halals: <http://halalnutritionfood.com/resources/halalsources/> .
+@prefix halalc: <http://halalnutritionfood.com/resources/certificates/> .
+@prefix halalm: <http://halalnutritionfood.com/resources/manufactures/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 

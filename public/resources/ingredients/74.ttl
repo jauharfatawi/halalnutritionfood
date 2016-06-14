@@ -1,0 +1,4 @@
+halali:74 a halalv:FoodAdditive;
+	halalv:rank 74;
+	rdfs:label "Sodium benzoate";
+	rdfs:comment "E211".

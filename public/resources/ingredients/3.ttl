@@ -1,0 +1,4 @@
+halali:3 a halalv:FoodAdditive;
+	halalv:rank 3;
+	rdfs:label "Tartrazine";
+	rdfs:comment "E102".

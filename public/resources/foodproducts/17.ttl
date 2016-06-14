@@ -1,0 +1,37 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix halalv: <http://halalnutritionfood.com/halalv.ttl#> .
+@prefix halalf: <http://halalnutritionfood.com/resources/foodproducts/> .
+@prefix halali: <http://halalnutritionfood.com/resources/ingredients/> .
+@prefix halals: <http://halalnutritionfood.com/resources/halalsources/> .
+@prefix halalc: <http://halalnutritionfood.com/resources/certificates/> .
+@prefix halalm: <http://halalnutritionfood.com/resources/manufactures/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+halalf:17 a halalv:FoodProduct;
+	halalv:foodCode "011747233033";
+	rdfs:label "Dua Kelinci - Kacang Garing";
+	halalv:manufacture "PT. Dua Kelinci";
+	halalv:netWeight 25;
+	halalv:calories 160;
+	halalv:fat 12;
+	halalv:saturatedFat 3;
+	halalv:sodium 99.9;
+	halalv:fiber 3;
+	halalv:sugar 1;
+	halalv:protein 8;
+	halalv:vitaminA 0;
+	halalv:vitaminC 0;
+	halalv:calcium 0;
+	halalv:iron 0.
+
+halalf:17 halalv:manufacture halalm:17.
+
+halalf:17 halalv:certificate halalc:15. 
+
+halalf:17 halalv:containsIngredient halali:402, halali:344, halali:340.

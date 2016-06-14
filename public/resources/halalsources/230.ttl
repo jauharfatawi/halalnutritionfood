@@ -1,0 +1,5 @@
+halals:230 a halalv:Source;
+	rdfs:label "Halal";
+	rdfs:comment "Miscellaneous - Acids and Salts: Carbonates";
+	foaf:organization "Muslim Customer Group";
+	rdfs:seeAlso <http://www.muslimconsumergroup.com/e-numbers_list.html>.

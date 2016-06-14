@@ -1,0 +1,4 @@
+halali:137 a halalv:FoodAdditive;
+	halalv:rank 137;
+	rdfs:label "Citric acid";
+	rdfs:comment "E330".

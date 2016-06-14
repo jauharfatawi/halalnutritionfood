@@ -1,0 +1,5 @@
+halals:21 a halalv:Source;
+	rdfs:label "Halal";
+	rdfs:comment "It is a red azo dye used for color in foods. Since it is soluble in water, both dry or liquid forms are Halal.";
+	foaf:organization "Muslim Customer Group";
+	rdfs:seeAlso <http://www.muslimconsumergroup.com/e-numbers_list.html>.

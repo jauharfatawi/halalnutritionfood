@@ -1,0 +1,5 @@
+halalc:15 a halalv:HalalCertificate;
+	halalv:halalCode "00100017571001";
+	halalv:halalExp "2016-07-01"^^xsd:date;
+	halalv:halalStatus "Development";
+	foaf:organization "Majelis Ulama Indonesia".

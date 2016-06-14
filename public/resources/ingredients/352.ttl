@@ -1,0 +1,4 @@
+
+                    halali:352 a halalv:Ingredient;
+                    	halalv:rank 352;
+                    	rdfs:label "Maltodextrine".

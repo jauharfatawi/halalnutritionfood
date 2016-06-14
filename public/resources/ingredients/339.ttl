@@ -1,0 +1,4 @@
+
+                    halali:339 a halalv:Ingredient;
+                    	halalv:rank 339;
+                    	rdfs:label "Vegetable Oil".

@@ -1,0 +1,5 @@
+halals:351 a halalv:Source;
+	rdfs:label "Halal";
+	rdfs:comment "Halal";
+	foaf:organization "World of Islam";
+	rdfs:seeAlso <https://special.worldofislam.info/Food/numbers.html>.

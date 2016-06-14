@@ -1,0 +1,4 @@
+halali:46 a halalv:FoodAdditive;
+	halalv:rank 46;
+	rdfs:label "Brown HT";
+	rdfs:comment "E155".
