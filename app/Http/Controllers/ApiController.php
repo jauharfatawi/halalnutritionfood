@@ -285,6 +285,8 @@ class ApiController extends Controller
         }
         fclose($resFoodProduct);
         chmod($fileFoodProduct, 0777);
+        fclose($turtlefile);
+        chmod("resources.ttl", 0777);
         // fclose("turtle.ttl");
         echo "berhasil";
         //jalankan skrip ke fuseki
