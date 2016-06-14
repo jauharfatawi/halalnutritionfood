@@ -123,7 +123,6 @@ class ApiController extends Controller
 @prefix halalm: <http://halalnutritionfood.com/resources/manufactures/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
         
-
         if(!$turtlefile){
             return "error";
         }
