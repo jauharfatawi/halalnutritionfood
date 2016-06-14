@@ -13,7 +13,7 @@
 @prefix halalm: <http://halalnutritionfood.com/resources/manufactures/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-halalf:4. a halalv:FoodProduct.
-halalf:5. a halalv:FoodProduct.
-halalf:13. a halalv:FoodProduct.
-halalf:17. a halalv:FoodProduct.
+halalf:4 a halalv:FoodProduct.
+halalf:5 a halalv:FoodProduct.
+halalf:13 a halalv:FoodProduct.
+halalf:17 a halalv:FoodProduct.
