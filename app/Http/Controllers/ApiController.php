@@ -133,7 +133,7 @@ class ApiController extends Controller
         fwrite($turtlefile, $prefix);
 
         foreach ($foodProducts as $fp => $val) {
-            $list[$fp]="\nhalalf:".$foodProducts[$fp]['id'].". a halalv:FoodProduct.";
+            $list[$fp]="\nhalalf:".$foodProducts[$fp]['id']." a halalv:FoodProduct.";
             fwrite($turtlefile, $list[$fp]);
         }
 
