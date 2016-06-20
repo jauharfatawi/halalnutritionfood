@@ -12,7 +12,7 @@ var verifyStatus = function ( data, type, full, meta ) {
 var foodProductTableAdmin = $('#foodProduct-tableAdmin').DataTable({
     processing : true,
     serverSide : true,
-    pageLength : 100,
+    pageLength : 10,
     ajax : laroute.route('api.foodproduct.data'),
     columns: [
         { data: 'fCode', name: 'fCode'},
