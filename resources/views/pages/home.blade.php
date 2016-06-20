@@ -10,7 +10,7 @@
     <div class="jumbotron">
         <div class="container">
             <h1>Halal nutrition food</h1>
-            <p>Halal Nutrition Food is website that you can search halal certification on food product</p>
+            <p>Halal nutrition food is a website that give information halal certification and nutrition of a food product</p>
         </div>
     </div>
     <div class="container">
@@ -56,7 +56,8 @@
             <div class="col-md-6">
                 <h1>What is Halal</h1>
                 <p>Halal simply means permitted or lawful. So when we are talking about halal foods it means any foods that are allowed to be eaten according to Islamic Sharia law.</p>
-                <p>This means that for any food to be considered halal it must comply with the religious ritual and observance of Sharia law.</p>
+                <p>There is some verse that explain how moeslem must eat halal food. "O mankind, eat from whatever is on earth [that is] lawful and good." Al-Baqarah[2:168]
+                "Those who follow the Messenger, the unlettered prophet, whom they find written in what they have of the Torah and the Gospel, who enjoins upon them what is right and forbids them what is wrong and makes lawful for them the good things and prohibits for them the evil" Al-A'raf[7:157]</p>
             </div>
         </div>
     </div>

@@ -130,7 +130,7 @@
                                     @else
                                         <td>Haraam</td>
                                     @endif
-                                    <td>{{ $halal->hDescription }} - <a href="{{ $halal->url }}">Read More</a> </td>
+                                    <td>{{ $halal->hDescription }} - <a href="{{ $halal->hUrl }}">Read More</a> </td>
                                     <td>{{ $halal->hOrganization }}</td>
                                 </tr>
                             @endforeach

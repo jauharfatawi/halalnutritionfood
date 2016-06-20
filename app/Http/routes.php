@@ -2,6 +2,7 @@
 
 $s = 'public.';
 Route::get('/',         ['as' => $s . 'home',   'uses' => 'PagesController@getHome']);
+Route::get('/about',         ['as' => $s . 'about',   'uses' => 'PagesController@getAbout']);
 
 $a = 'auth.';
 Route::get('/login',            ['as' => $a . 'login',          'uses' => 'Auth\AuthController@getLogin']);
@@ -53,4 +54,6 @@ Route::controller('api', 'ApiController',[
 	'getWriteToTurtle' => 'api.writeTurtle',
 ]);
 
-Route::controller('RDFBrowser', 'RDFBrowserController');
+Route::controller('RDFBrowser', 'RDFBrowserController',[
+	'getIndex' => 'rdf.browser'
+]);

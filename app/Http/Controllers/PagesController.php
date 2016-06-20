@@ -12,21 +12,25 @@ class PagesController extends Controller {
         $addictives = Ingredient::where('itype',1)->get();
         return view('pages.home',compact('foodproducts','addictives'));
     }
-
-    public function submit()
+    public function getAbout()
     {
-        $ingredients = Ingredient::lists('iname','id');
-        return view('pages.frontend.submit',compact('ingredients'));
+        return view('pages.about');   
     }
 
-    public function foodlist()
-    {
-        $foodproducts = FoodProduct::all();
+    // public function submit()
+    // {
+    //     $ingredients = Ingredient::lists('iname','id');
+    //     return view('pages.frontend.submit',compact('ingredients'));
+    // }
 
-    }
+    // public function foodlist()
+    // {
+    //     $foodproducts = FoodProduct::all();
 
-    public function addiclist()
-    {
+    // }
 
-    }
+    // public function addiclist()
+    // {
+
+    // }
 }

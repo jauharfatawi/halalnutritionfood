@@ -45,7 +45,7 @@
                     'data-parsley-mincheck'=>'3',
                     'data-parsley-errors-container' => "#formIngredient",
                     'data-parsley-class-handler' => '.selectIngredient',
-                    'data-parsley-trigger' => 'change focusout',
+                    
                 ]) !!}
             @else
                 {!! Form::select('ingredient_list[]', array(), null, [
@@ -55,7 +55,7 @@
                     'data-parsley-mincheck'=>'3',
                     'data-parsley-errors-container' => "#formIngredient",
                     'data-parsley-class-handler' => '.selectIngredient',
-                    'data-parsley-trigger' => 'change focusout',
+                    
                 ]) !!}
             @endif
         </div>

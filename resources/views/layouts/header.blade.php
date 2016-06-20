@@ -14,7 +14,8 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('public.home')  }}">Home</a></li>
+                        <li><a href="{{ route('public.about')  }}">About</a></li>
+                        <li><a href="{{ route('rdf.browser')  }}">RDF Browser</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @if(!Auth::check())
