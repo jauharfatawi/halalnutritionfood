@@ -16,6 +16,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('public.about')  }}">About</a></li>
                         <li><a href="{{ route('rdf.browser')  }}">RDF Browser</a></li>
+                        <li><a href="{{ route('api.sparql')  }}">SPARQL</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         @if(!Auth::check())

@@ -9,7 +9,7 @@ use App\Models\Ingredient;
 use App\Models\Certificate;
 use App\Models\HalalSource;
 
-use DB;
+use DB, Input;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -105,39 +105,35 @@ class ApiController extends Controller
 
     public function getWriteToTurtle()
     {
-        $turtlefile = fopen("resources.ttl", "w");
-        // chmod("resources.ttl", 0777);
-        // $vocabfile = file_get_contents('halalv.ttl', true);
+        //Resource Produk
+        $productfile = fopen("resources.ttl", "w");
+
         $prefix = "@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix halalv: <http://halalnutritionfood.com/halalv.ttl#> .
 @prefix halalf: <http://halalnutritionfood.com/resources/foodproducts/> .
 @prefix halali: <http://halalnutritionfood.com/resources/ingredients/> .
 @prefix halals: <http://halalnutritionfood.com/resources/halalsources/> .
 @prefix halalc: <http://halalnutritionfood.com/resources/certificates/> .
-@prefix halalm: <http://halalnutritionfood.com/resources/manufactures/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n";
+@prefix halalm: <http://halalnutritionfood.com/resources/manufactures/> .\n";
         
-        if(!$turtlefile){
-            return "error";
-        }
         $ingWritted = 0;
         $foodProducts = FoodProduct::where('fVerify',1)->get()->toArray();
 
-        // fwrite($turtlefile, $vocabfile);
-        fwrite($turtlefile, $prefix);
-
+        fwrite($productfile, $prefix);
+        
+        //Menuliskan Resource foodproducts.ttl
         foreach ($foodProducts as $fp => $val) {
             $list[$fp]="\nhalalf:".$foodProducts[$fp]['id']." a halalv:FoodProduct.";
-            fwrite($turtlefile, $list[$fp]);
+            fwrite($productfile, $list[$fp]);
         }
 
         foreach ($foodProducts as $fp => $val) {
+            //=========================== FOOD PRODUCT ==================================
+            //Menuliskan ke turtle
             $list[$fp]="halalf:".$foodProducts[$fp]['id']." a halalv:FoodProduct;
 \thalalv:foodCode \"".$foodProducts[$fp]['fCode']."\";
 \trdfs:label \"".$foodProducts[$fp]['fName']."\";
@@ -154,31 +150,53 @@ class ApiController extends Controller
 \thalalv:vitaminC ".$foodProducts[$fp]['vitaminC'].";
 \thalalv:calcium ".$foodProducts[$fp]['calcium'].";
 \thalalv:iron ".$foodProducts[$fp]['iron'].".\n";
-            // fwrite($turtlefile, $list[$fp]);
 
+            //Menuliskan file resource foodproducts
             $fileFoodProduct = "resources/foodproducts/".$foodProducts[$fp]['id'].".ttl";
             $resFoodProduct = fopen($fileFoodProduct, "w");
             fwrite($resFoodProduct, $prefix."\n");
             fwrite($resFoodProduct, $list[$fp]);
-            // fclose($resFoodProduct);
 
+            $hasManufacture = "\nhalalf:".$foodProducts[$fp]['id']." halalv:manufacture halalm:".$foodProducts[$fp]['id'].".";
+            
+            //Menuliskan hubungan foodproduct dengan manufacture di file resource foodproducts
+            fwrite($resFoodProduct, $hasManufacture."\n");
+
+            $getCertFK = DB::select('select * from foodProduct_certificate where foodProduct_id = ?', [$foodProducts[$fp]['id']]);
+            $hasCertificate = "\nhalalf:".$foodProducts[$fp]['id']." halalv:certificate ";
+            foreach ($getCertFK as $id => $val) {
+                $hasCertificate = $hasCertificate."halalc:".$getCertFK[$id]->certificate_id.", ";
+            }
+
+            //Menuliskan hubungan foodproduct dengan certificate di file resource foodproducts
+            fwrite($resFoodProduct, rtrim($hasCertificate,", \"").".\n");
+
+            $getIngFK = DB::select('select * from foodProduct_ingredient where foodProduct_id = ?', [$foodProducts[$fp]['id']]);
+
+            //Menuliskan kandungan komposisi
+            $containsIng = "\nhalalf:".$foodProducts[$fp]['id']." halalv:containsIngredient ";
+            foreach ($getIngFK as $id => $val) {
+                $containsIng = $containsIng."halali:".$getIngFK[$id]->ingredient_id.", ";
+            }
+            
+            //Menuliskan file resource certificates
+            fwrite($resFoodProduct, rtrim($containsIng,", \"").".\n");
+
+            //=========================== MANUFACTURE ==================================
+            //Get manufacture
             $getManufacture = DB::select('select fManufacture from foodProducts where id = ?', [$foodProducts[$fp]['id']]);
             $insertManufacture = "halalm:".$foodProducts[$fp]['id']." a halalv:Manufacture;
-\trdfs:label \"".$getManufacture[0]->fManufacture."\".\n";            
-            // fwrite($turtlefile, $insertManufacture);
+\trdfs:label \"".$getManufacture[0]->fManufacture."\".\n";   
+            
+            //Menuliskan file resource manufacture
             $fileManufacture = "resources/manufactures/".$foodProducts[$fp]['id'].".ttl";
             $resManufacture = fopen($fileManufacture, "w");
             fwrite($resManufacture, $prefix."\n");
             fwrite($resManufacture, $insertManufacture);
             fclose($resManufacture);
-            // chmod($fileManufacture, 0777);
 
-            $hasManufacture = "\nhalalf:".$foodProducts[$fp]['id']." halalv:manufacture halalm:".$foodProducts[$fp]['id'].".";
-            // fwrite($turtlefile, $hasManufacture);
-            fwrite($resFoodProduct, $hasManufacture."\n");
-            // fclose($resFoodProduct);
-            
-            $getCertFK = DB::select('select * from foodProduct_certificate where foodProduct_id = ?', [$foodProducts[$fp]['id']]);
+            //=========================== CERTIFICATE ==================================    
+            //Get certificate
             foreach ($getCertFK as $id => $val) {
                 $certificate[$id] = Certificate::findOrFail($getCertFK[$id]->certificate_id);
                 if($certificate[$id]->cStatus == 0){
@@ -190,68 +208,47 @@ class ApiController extends Controller
                 else{
                     $cStatus = "Renew";
                 }
-
-                $insertCertificate = "halalc:".$certificate[$id]->id." a halalv:HalalCertificate;
+                $insertCertificate = "\nhalalc:".$certificate[$id]->id." a halalv:HalalCertificate;
 \thalalv:halalCode \"".$certificate[$id]->cCode."\";
 \thalalv:halalExp \"".$certificate[$id]->cExpire->format('Y-m-d')."\"^^xsd:date;
 \thalalv:halalStatus \"".$cStatus."\";
 \tfoaf:organization \"".$certificate[$id]->cOrganization."\".";
-                // fwrite($turtlefile, $insertCertificate);
+
+                //Menuliskan file resource certificates
                 $fileCertificate = "resources/certificates/".$certificate[$id]->id.".ttl";
                 $resCertificate = fopen($fileCertificate, "w");
                 fwrite($resCertificate, $prefix."\n");
                 fwrite($resCertificate, $insertCertificate);
                 fclose($resCertificate);
-                // chmod($fileCertificate, 0777);
             }
 
-            $hasCertificate = "\nhalalf:".$foodProducts[$fp]['id']." halalv:certificate ";
-            foreach ($getCertFK as $id => $val) {
-                $hasCertificate = $hasCertificate."halalc:".$getCertFK[$id]->certificate_id.". ";
-            }
-            // fwrite($turtlefile, rtrim($hasCertificate,", \"").".\n");
-            fwrite($resFoodProduct, $hasCertificate."\n");
-            // fclose($resFoodProduct);
-
-            $getIngFK = DB::select('select * from foodProduct_ingredient where foodProduct_id = ?', [$foodProducts[$fp]['id']]);
-            foreach ($getIngFK as $id => $val) {
-                $ingredient[$id] = Ingredient::findOrFail($getIngFK[$id]->ingredient_id);
-                if($ingredient[$id]->iType == 0){
-                    $insertIngredient = "
-                    halali:".$ingredient[$id]->id." a halalv:Ingredient;
-                    \thalalv:rank ".$ingredient[$id]->id.";
-                    \trdfs:label \"".$ingredient[$id]->iName."\".\n";
-                }
-                else{
-                    $insertIngredient = "halali:".$ingredient[$id]->id." a halalv:FoodAdditive;
-\thalalv:rank ".$ingredient[$id]->id.";
-\trdfs:label \"".$ingredient[$id]->iName."\";
-\trdfs:comment \"".$ingredient[$id]->eNumber."\".\n";
-                }
-                if($ingWritted != $ingredient[$id]->id){
-                    // fwrite($turtlefile, $insertIngredient);
-                    $fileIngredient = "resources/ingredients/".$ingredient[$id]->id.".ttl";
-                    $resIngredient = fopen($fileIngredient, "w");
-                    fwrite($resIngredient, $prefix."\n");
-                    fwrite($resIngredient, $insertIngredient);
-                    fclose($resIngredient);
-                    // chmod($fileIngredient, 0777);  //changed to add the zero
-                }
-                $ingWritted = $ingredient[$id]->id;
-            }
-            
-            $containsIng = "\nhalalf:".$foodProducts[$fp]['id']." halalv:containsIngredient ";
-            foreach ($getIngFK as $id => $val) {
-                $containsIng = $containsIng."halali:".$getIngFK[$id]->ingredient_id.", ";
-            }
-            // fwrite($turtlefile, rtrim($containsIng,", \"").".\n");
-            fwrite($resFoodProduct, rtrim($containsIng,", \"").".\n");
-            // fclose($resFoodProduct);
-
+            //=========================== INGREDIENT ==================================
+            //Get Ingredient
             foreach ($getIngFK as $id => $val) {
                 $ingredient[$id] = Ingredient::findOrFail($getIngFK[$id]->ingredient_id);
                 $halalIng = "\nhalali:".$ingredient[$id]['id']." halalv:halalSource ";
-                if($ingredient[$id]->iType == 1){
+                $halalId = $ingredient[$id]['id'];
+                if($ingredient[$id]->iType == 0){
+                    $insertIngredient = "\nhalali:".$ingredient[$id]->id." a halalv:Ingredient;
+\thalalv:rank ".$ingredient[$id]->id.";
+\trdfs:label \"".$ingredient[$id]->iName."\".";
+                }
+                else{
+                    $insertIngredient = "\nhalali:".$ingredient[$id]->id." a halalv:FoodAdditive;
+\thalalv:rank ".$ingredient[$id]->id.";
+\trdfs:label \"".$ingredient[$id]->iName."\";
+\trdfs:comment \"".$ingredient[$id]->eNumber."\";\n";
+                    
+                    $DBpedia = @file_get_contents("http://dbpedia.org/sparql?default-graph-uri=http%3A%2F%2Fdbpedia.org&query=select+distinct+%3Fresource+where+%0D%0A%7B+%3Fresource+rdfs%3Alabel+%22".str_replace(" ","+",$ingredient[$id]->iName)."%22%40en+%7D&format=application%2Fsparql-results%2Bjson&CXML_redir_for_subjs=121&CXML_redir_for_hrefs=&timeout=30000&debug=on");
+                    if($DBpedia) {
+                        $insertIngredient = $insertIngredient."\towl:sameAs <http://dbpedia.org/resource/".str_replace(' ', '_', $ingredient[$id]->iName).">.";
+                    }
+                    else{
+                        $insertIngredient = rtrim($insertIngredient,";\n").".";
+                    }
+
+                    //=========================== HALAL SOURCE ==================================
+                    //Get Halal Source
                     $getHalalFK = DB::select('select * from ingredient_halal where ingredient_id = ?', [$ingredient[$id]->id]);
                     foreach ($getHalalFK as $id => $val) {
                         $halal[$id] = HalalSource::findOrFail($getHalalFK[$id]->halal_id);
@@ -264,35 +261,51 @@ class ApiController extends Controller
                         else{
                             $hStatus = "Haraam";
                         }
-                        $insertHalal = "halals:".$halal[$id]->id." a halalv:Source;
+                        $insertHalal = "\nhalals:".$halal[$id]->id." a halalv:Source;
 \trdfs:label \"".$hStatus."\";
 \trdfs:comment \"".$halal[$id]->hDescription."\";
 \tfoaf:organization \"".$halal[$id]->hOrganization."\";
-\trdfs:seeAlso <".$halal[$id]->hUrl.">.\n";
-                        // fwrite($turtlefile, $insertHalal);
+\trdfs:seeAlso <".$halal[$id]->hUrl.">.";
+                        
+                        //Menuliskan file resource halalsource
                         $fileHalalSource = "resources/halalsources/".$halal[$id]->id.".ttl";
                         $resHalalSource = fopen($fileHalalSource, "w");
-                        fwrite($resHalalSource, $prefix."\n");
+                        fwrite($resHalalSource, $prefix);
                         fwrite($resHalalSource, $insertHalal);
                         fclose($resHalalSource);
-                        // chmod($fileHalalSource, 0777);  //changed to add the zero
-
-                        $halalIng = $halalIng."halals:".$getHalalFK[$id]->halal_id.", ";
                         
+                        $halalIng = $halalIng."halals:".$getHalalFK[$id]->halal_id.", ";
                     }
-                    // fwrite($turtlefile, rtrim($halalIng,", \"").".\n");
-                    fwrite($resFoodProduct, rtrim($halalIng,", \"").".");
+                    $halalSource[$halalId] = rtrim($halalIng,", \"").".";
                     
                 }
+                if($ingWritted != $ingredient[$id]->id){
+                    //Menuliskan file resource ingredients
+                    $fileIngredient = "resources/ingredients/".$halalId.".ttl";
+                    $resIngredient = fopen($fileIngredient, "w");
+                    fwrite($resIngredient, $prefix);
+                    fwrite($resIngredient, $insertIngredient);
+                    if (isset($halalSource[$halalId])) {
+                        fwrite($resIngredient, $halalSource[$halalId]);
+                    }
+                    fclose($resIngredient);
+                }
+                $ingWritted = $ingredient[$id]->id;
             }
             
+            //lanjut ke food product selanjutnya
+            fclose($resFoodProduct);
         }
-        fclose($resFoodProduct);
-        // chmod($fileFoodProduct, 0777);
-        fclose($turtlefile);
-        // fclose("turtle.ttl");
         echo "berhasil";
-        //jalankan skrip ke fuseki
-        
+    }
+    public function getSparql()
+    {
+        return view('pages/sparql');
+    }
+    public function postSparql(Request $request)
+    {
+        $query = $request->input('query');
+        $output = $request->input('output');
+        header('location: http://128.199.237.114:3030/lodhalal/sparql?query='.urlencode($query).'&output='.$output);
     }
 }
