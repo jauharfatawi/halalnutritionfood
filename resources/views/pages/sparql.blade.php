@@ -14,22 +14,20 @@
         </div>
     </div>
     <div class="row">
+        {!! Form::open(['method' => 'api.sparql']) !!}
         <div class="col-md-8">
-            {!! Form::open(['method' => 'api.red.sparql']) !!}
-                <div class="form-group">
-                    <label for="query">Insert Query Here</label>
-                    {!! Form::textarea('query', null, [
-                        'class' => 'form-control',
-                        'id' => 'query',
-                        'placeholder' => 'Enter query here',
-                        'rows' => '10', 'cols' => '3',
-                    ]) !!}
-                </div>
-                <div class="form-group">
-                    <p> <label for="output">Output</label> {!! Form::select('output', ['JSON'=>'JSON','XML'=>'XML','Text'=>'Text','CSV'=>'CSV','TSV'=>'TSV'], ['class' => 'form-control'] ) !!} </p>
-                </div>
-                {!! Form::submit('Submit Query', ['class' => 'btn btn-primary pull-right']) !!}
-            {!! Form::close() !!}
+            <div class="form-group">
+                <label for="query">Insert Query Here</label>
+                {!! Form::textarea('query', null, [
+                    'class' => 'form-control',
+                    'id' => 'query',
+                    'placeholder' => 'Enter query here',
+                    'rows' => '10', 'cols' => '3',
+                ]) !!}
+            </div>
+            <div class="form-group">
+                <p> <label for="output">Output</label> {!! Form::select('output', ['JSON'=>'JSON','XML'=>'XML','Text'=>'Text','CSV'=>'CSV','TSV'=>'TSV'], ['class' => 'form-control'] ) !!} </p>
+            </div>
         </div>
         <div class="col-md-4">
             <h4>Example</h4>
@@ -53,6 +51,8 @@
             </ul>
         </div>
         </div>
+        {!! Form::submit('Submit Query', ['class' => 'btn btn-primary pull-right']) !!}
+        {!! Form::close() !!}
         </div>
     </div>
 @endsection
