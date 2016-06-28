@@ -169,7 +169,9 @@ class ApiController extends Controller
             }
 
             //Menuliskan hubungan foodproduct dengan certificate di file resource foodproducts
-            fwrite($resFoodProduct, rtrim($hasCertificate,", \"").".\n");
+            if(substr($hasCertificate, -3,1) !== "e"){
+                fwrite($resFoodProduct, rtrim($hasCertificate,", \"").".\n");    
+            }
 
             $getIngFK = DB::select('select * from foodProduct_ingredient where foodProduct_id = ?', [$foodProducts[$fp]['id']]);
 
