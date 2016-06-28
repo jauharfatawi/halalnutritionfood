@@ -304,7 +304,7 @@ class ApiController extends Controller
     {
         return view('pages/sparql');
     }
-    public function postSparql(Request $request)
+    public function postRedSparql(Request $request)
     {
         $query = $request->input('query');
         $output = $request->input('output');

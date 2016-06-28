@@ -15,7 +15,7 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            {!! Form::open(['method' => 'api.sparql']) !!}
+            {!! Form::open(['method' => 'api.red.sparql']) !!}
                 <div class="form-group">
                     <label for="query">Insert Query Here</label>
                     {!! Form::textarea('query', null, [

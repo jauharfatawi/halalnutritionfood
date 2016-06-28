@@ -52,7 +52,7 @@ Route::controller('api', 'ApiController',[
 	'getHalalOrgList' => 'api.halalOrg.list',
 	'getCertOrgList' => 'api.certOrg.list',
 	'getWriteToTurtle' => 'api.writeTurtle',
-	'postSparql' => 'api.sparql',
+	'postRedSparql' => 'api.red.sparql',
 ]);
 
 Route::controller('RDFBrowser', 'RDFBrowserController',[
