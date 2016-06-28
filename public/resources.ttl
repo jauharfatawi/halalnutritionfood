@@ -14,3 +14,4 @@ halalf:4 a halalv:FoodProduct.
 halalf:5 a halalv:FoodProduct.
 halalf:13 a halalv:FoodProduct.
 halalf:17 a halalv:FoodProduct.
+halalf:99 a halalv:FoodProduct.

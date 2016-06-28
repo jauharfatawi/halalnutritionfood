@@ -169,7 +169,7 @@ class ApiController extends Controller
             }
 
             //Menuliskan hubungan foodproduct dengan certificate di file resource foodproducts
-            if(substr($hasCertificate, -3,1) !== "e"){
+            if(substr($hasCertificate, -2,1) !== "e"){
                 fwrite($resFoodProduct, rtrim($hasCertificate,", \"").".\n");    
             }
 
